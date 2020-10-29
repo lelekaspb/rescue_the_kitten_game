@@ -1,0 +1,271 @@
+body {
+  font-size: 1.5vw;
+  /* width: calc(100vh / 9 * 16);
+  height: 100vh; */
+  margin: 0;
+  background-color: #aa8adb;
+  font-family: Arial, Helvetica, sans-serif ;
+  color: #391e62;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #391e62;
+}
+a:hover {
+  color: #6736b0;
+}
+
+main {
+  display: grid;
+  grid-template-areas: "game info";
+  column-gap: 3vw;
+  grid-template-columns: 80% 1fr;
+  margin-left: 2vw;
+}
+
+#game_screen {
+  grid-area: game;
+  height: 43vw;
+}
+aside {
+  grid-area: info;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 2vw;
+}
+
+/* footer {
+  background-color: blueviolet;
+} */
+
+/* footer > ul {
+  margin: 0;
+} */
+
+ #game {
+  position: relative;
+} 
+
+#game_background {
+  background-image: url('../images/game_background.svg');
+  background-size: cover;
+  width: 80vw;
+  height: 43vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#kittens_mouth {
+  background-image: url('../images/kitten_mouth.svg');
+  background-size: cover;
+  position: absolute;
+  width: 1vw;
+  height: 1.5vw;
+}
+.pos1 {
+  left: 56.5vw;
+  top: 19.7vw;
+}
+
+#fire {
+  background-image: url('../images/fire_big.svg');
+  background-size: cover;
+  position: absolute;
+  width: 8.5vw;
+  height: 9vw;
+}
+.pos2 {
+  left: 15vw;
+  top: 30vw;
+}
+
+.sprite1 {
+  background-image: url('../images/firedrop.svg');
+  background-size: cover;
+  position: absolute;
+  width: 6vw;
+  height: 6vw;
+  z-index: 1;
+}
+.pos3 {
+  left: 30vw;
+  top: 26vw;
+}
+.pos4 {
+  left: 40vw;
+  top: 15vw;
+}
+
+.sprite2 {
+  background-image: url('../images/waterdrop_big.svg');
+  background-size: cover;
+  position: absolute;
+  width: 5vw;
+  height: 5.5vw;
+  z-index: 1;
+}
+.pos5 {
+  left: 33vw;
+  top: 20vw;
+}
+.pos6 {
+  left: 43vw;
+  top: 30vw;
+}
+
+#game_foreground {
+  background-image: url('../images/foreground.svg');
+  background-size: cover;
+  position: absolute;
+  width: 81vw;
+  height: 10vw;
+  margin: 0;
+  top: -1vw;
+  left: -1vw;
+}
+
+
+#score_waterdrop {
+  background-image: url('../images/waterdrop_ui.svg');
+  background-size: cover;
+  position: absolute;
+  top: 1.5vw;
+  left: 58vw;
+  width: 2.6vw;
+  height: 3vw;
+}
+#score_number {
+  position: absolute;
+  top: 1.5vw;
+  left: 56vw;
+  font-size: 3vw;
+}
+
+.sprite3 {
+  background-image: url('../images/heart_ui.svg');
+  background-size: cover;
+  position: absolute;
+  width: 3.2vw;
+  height: 3vw;
+  
+}
+.pos8 {
+  top: 1.5vw;
+  left: 2vw;
+}
+.pos9 {
+  top: 1.5vw;
+  left: 5.5vw;
+}
+
+.sprite4 {
+  background-image: url('../images/heart_ui_empty.svg');
+  background-size: cover;
+  position: absolute;
+  width: 3.2vw;
+  height: 3vw;
+}
+.pos10 {
+  top: 1.5vw;
+  left: 9vw;
+}
+
+#time_background {
+  background-image: url('../images/timebar_background.svg');
+  background-size: cover;
+  position: absolute;
+  width: 21.5vw;
+  height: 2.5vw;
+}
+.pos11 {
+  top: 1.5vw;
+  left: 30vw;
+}
+#time_foreground {
+  background-image: url('../images/timebar_foreground.svg');
+  background-size: cover;
+  position: absolute;
+  width: 30vw;
+  height: 3vw;
+  top: 1.5vw;
+  left: 22.5vw;
+}
+
+#settings {
+  background-image: url('../images/settings.svg');
+  background-size: cover;
+  position: absolute;
+  width: 3vw;
+  height: 3vw;
+  top: 1.5vw;
+  left: 76vw;
+}
+
+
+ 
+ .hidden {
+  visibility: hidden;
+}  
+
+main {
+  position: relative;
+}
+
+#title_screen {
+  background-image: url('../images/start_screen.svg');
+  background-size: cover;
+  width: 80vw;
+  height: 43vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#title_screen div {
+  background-image: url('../images/button_play.svg');
+  background-size: cover;
+}
+
+#game_over {
+  background-image: url('../images/game_over_screen.svg');
+  background-size: cover;
+  width: 80vw;
+  height: 43vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#game_over div {
+  background-image: url('../images/button_try_again.svg');
+  background-size: cover;
+}
+
+#level_complete {
+  background-image: url('../images/level_complete.svg');
+  background-size: cover;
+  width: 80vw;
+  height: 43vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#game_over div {
+  background-image: url('../images/button_next_level.svg');
+  background-size: cover;
+}
+
+.pos12 {
+  width: 35vw;
+  height: 7vw;
+  position: absolute;
+  top: 30vw;
+  left: 25vw;
+  z-index: 1;
+}

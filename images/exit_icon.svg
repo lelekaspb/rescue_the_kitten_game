@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55" height="55" viewBox="0 0 55 55">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#AI_GaussianBlur_4_1_);
+      }
+
+      .cls-2 {
+        fill: #521fcc;
+      }
+
+      .cls-3 {
+        fill: #895ecc;
+      }
+    </style>
+    <filter id="AI_GaussianBlur_4_1_" name="AI_GaussianBlur_4_1_">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+  <g id="UI_settings_open">
+    <g>
+      <g class="cls-1">
+        <rect class="cls-2" x="5.02" y="7.14" width="45.15" height="42.33"/>
+      </g>
+      <rect class="cls-3" x="1.79" y="1.09" width="44.35" height="44.35"/>
+      <g>
+        <rect x="21.77" y="10.11" width="3.27" height="28.22" rx="1.64" transform="translate(-10.08 20.62) rotate(-39.83)"/>
+        <rect x="20.8" y="10.08" width="3.32" height="28.22" rx="1.66" transform="translate(20.92 -8.78) rotate(40.21)"/>
+      </g>
+    </g>
+  </g>
+</svg>
