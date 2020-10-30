@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="65" height="65" viewBox="0 0 65 65">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#AI_GaussianBlur_4);
+      }
+
+      .cls-2 {
+        fill: #521fcc;
+      }
+
+      .cls-3 {
+        fill: #895ecc;
+      }
+    </style>
+    <filter id="AI_GaussianBlur_4" name="AI_GaussianBlur_4">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+  <g id="UI_settings">
+    <g>
+      <g class="cls-1">
+        <rect class="cls-2" x="8.64" y="9.57" width="48.21" height="47.76"/>
+      </g>
+      <rect class="cls-3" x="3.18" y="3.2" width="50.03" height="50.03"/>
+      <g>
+        <g>
+          <rect x="38.05" y="20.49" width="2.33" height="20.12" rx="1.17" transform="translate(-10.47 32.21) rotate(-39.83)"/>
+          <rect x="37.35" y="20.47" width="2.37" height="20.12" rx="1.18" transform="translate(28.82 -17.66) rotate(40.21)"/>
+        </g>
+        <g>
+          <path d="M17.88,24.65v11.4H13.67A3.06,3.06,0,0,1,10.61,33V27.72a3.07,3.07,0,0,1,3.06-3.07Z"/>
+          <path d="M13.67,24.06A3.66,3.66,0,0,0,10,27.72V33a3.66,3.66,0,0,0,3.65,3.65h4.21V35.46H13.67A2.46,2.46,0,0,1,11.2,33V27.72a2.47,2.47,0,0,1,2.47-2.48h4.21V24.06Z"/>
+        </g>
+        <path d="M29.16,16.59V44.27a14.6,14.6,0,0,1-10.1-7.57V24.16A14.63,14.63,0,0,1,29.16,16.59Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

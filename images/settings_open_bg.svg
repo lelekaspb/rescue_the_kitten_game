@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="370" height="90" viewBox="0 0 370 90">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a28dcc;
+      }
+    </style>
+  </defs>
+  <g id="UI_settings">
+    <g>
+      <rect class="cls-1" x="0.56" y="23.84" width="368.88" height="67.32"/>
+      <polygon class="cls-1" points="338.46 5.84 313.29 24.84 363.62 24.84 338.46 5.84"/>
+    </g>
+  </g>
+</svg>
