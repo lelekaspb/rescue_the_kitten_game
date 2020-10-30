@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55" height="55" viewBox="0 0 55 55">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="65" height="65" viewBox="0 0 65 65">
   <defs>
     <style>
       .cls-1 {
-        filter: url(#AI_GaussianBlur_4_1_);
+        filter: url(#AI_GaussianBlur_4);
       }
 
       .cls-2 {
@@ -12,25 +12,25 @@
       .cls-3 {
         fill: #895ecc;
       }
-
-      .cls-4 {
-        fill: #040307;
-      }
     </style>
-    <filter id="AI_GaussianBlur_4_1_" name="AI_GaussianBlur_4_1_">
+    <filter id="AI_GaussianBlur_4" name="AI_GaussianBlur_4">
       <feGaussianBlur stdDeviation="4"/>
     </filter>
   </defs>
-  <g id="UI_settings_open">
+  <g id="UI_settings">
     <g>
       <g class="cls-1">
-        <rect class="cls-2" x="6.56" y="6.94" width="42.74" height="42.33"/>
+        <rect class="cls-2" x="8.64" y="9.57" width="48.21" height="47.76"/>
       </g>
+      <rect class="cls-3" x="3.18" y="3.2" width="50.03" height="50.03"/>
       <g>
-        <rect class="cls-3" x="1.72" y="1.29" width="44.35" height="44.35"/>
         <g>
-          <path class="cls-4" d="M23.89,35.56A12.1,12.1,0,0,1,11.8,23.47h2A10.08,10.08,0,1,0,23.89,13.39v-2a12.1,12.1,0,1,1,0,24.19Z"/>
-          <polygon class="cls-4" points="19.53 12.36 23.89 15.13 23.89 9.6 19.53 12.36"/>
+          <path d="M28.2,43.23A13.66,13.66,0,0,1,14.55,29.59a1.4,1.4,0,0,1,2.28,0A11.37,11.37,0,1,0,28.2,18.21V15.94a13.65,13.65,0,0,1,0,27.29Z"/>
+          <path d="M28.2,43.91A14.34,14.34,0,0,1,13.87,29.59v-.27l.17-.19a2.2,2.2,0,0,1,1.54-.81,2.43,2.43,0,0,1,1.72.77l.21.2v.3A10.69,10.69,0,1,0,28.2,18.9h-.68V15.26h.68a14.33,14.33,0,1,1,0,28.65Zm-13-14A13,13,0,1,0,28.88,16.64v.91A12.05,12.05,0,1,1,16.15,29.9a.86.86,0,0,0-.52-.21A.62.62,0,0,0,15.24,29.87Z"/>
+        </g>
+        <g>
+          <polygon points="23.28 17.05 28.2 20.17 28.2 13.94 23.28 17.05"/>
+          <path d="M28.88,21.41,22,17.05l6.88-4.35Zm-4.33-4.36,3,1.88V15.18Z"/>
         </g>
       </g>
     </g>
