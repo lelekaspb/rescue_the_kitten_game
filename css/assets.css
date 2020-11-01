@@ -1,0 +1,31 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+section {
+  margin-top: 10vw;
+}
+
+figure {
+  display: inline-block;
+}
+
+#bg_img,
+#game_img {
+  width: 95vw;
+  height: auto;
+}
+
+#ui_elements div {
+  margin-top: 3vw;
+}
+
+#timebar_bg {
+  width: 44vw;
+  height: auto;
+}
+
+#timebar_fg {
+  width: 55vw;
+  height: auto;
+}

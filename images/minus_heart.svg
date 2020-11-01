@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50" viewBox="0 0 100 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a31f00;
+      }
+    </style>
+  </defs>
+  <g id="waterdrop">
+    <g>
+      <rect x="15.91" y="9.57" width="4.2" height="28.3" rx="2.1" transform="translate(-5.71 41.74) rotate(-90)"/>
+      <path class="cls-1" d="M92.1,25.64,69.25,48.48l0,0-.22.22L46.16,25.84a13.8,13.8,0,0,1,0-19.52l.76-.76a13.8,13.8,0,0,1,19.52,0L69,8.15l2.78-2.79a13.8,13.8,0,0,1,19.52,0l.77.77A13.81,13.81,0,0,1,92.1,25.64Z"/>
+    </g>
+  </g>
+</svg>

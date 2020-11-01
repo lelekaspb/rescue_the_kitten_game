@@ -124,6 +124,19 @@ aside {
   top: 30vw;
 }
 
+.sprite5 {
+  background-image: url('../images/heart_big.svg');
+  background-size: 100%;
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  z-index: 1;
+}
+.pos21 {
+  top: 13vw;
+  left: 30vw;
+}
+
 #game_foreground {
   background-image: url('../images/foreground.svg');
   background-size: 100%;
