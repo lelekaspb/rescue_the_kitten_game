@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
   <title>Rescue The Kitten</title>
 </head>
 <body>
@@ -26,19 +27,19 @@
         <div id="fire" class="pos2"></div>
         <div id="game_sprites"> 
           <div id="firedrop1_container">
-            <div id="firedrop1_sprite" class="sprite1 pos3"></div>
+            <div id="firedrop1_sprite" class="sprite1"></div>
           </div>
           <div id="firedrop2_container">
-            <div class="sprite1 pos4"></div>
+            <div id="firedrop2_sprite" class="sprite1"></div>
           </div>
-          <div id="waterdrop1_container">
-            <div id="waterdrop1_sprite" class="sprite2 pos5"></div>
+          <div id="waterdrop1_container" class="pause"> 
+            <div id="waterdrop1_sprite" class="sprite2"></div>
           </div>
           <div id="waterdrop2_container">
-            <div id="waterdrop2_sprite" class="sprite2 pos6"></div>
+            <div id="waterdrop2_sprite" class="sprite2"></div>
           </div>
           <div id="heart_container">
-            <div id="heart_sprite" class="sprite5 pos21"></div>
+            <div id="heart_sprite" class="sprite5"></div>
           </div>
         </div>
         <div id="game_foreground"> </div>
@@ -94,5 +95,6 @@
     </ul>
   </footer>
   
+  <script src="js/script.js"></script>
 </body>
 </html>
