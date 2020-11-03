@@ -313,6 +313,48 @@ aside {
   left: 75.5vw;
 }
 
+.plus_waterdrop {
+  background-image: url('../images/plus_waterdrop.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  width: 2vw;
+  height: 1.5vw;
+  opacity: 0; 
+}
+.pos22 {
+  top: 13vw;
+  left: 54vw;
+}
+
+.plus_heart {
+  background-image: url('../images/plus_heart.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  width: 3vw;
+  height: 3vw;
+  opacity: 0;
+}
+.pos23 {
+  top: 13vw;
+  left: 57vw;
+}
+
+.minus_heart {
+  background-image: url('../images/minus_heart.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  width: 3vw;
+  height: 3vw;
+  opacity: 0; 
+}
+.pos24 {
+  top: 11vw;
+  left: 55vw;
+}
+
 
  
  .hidden {

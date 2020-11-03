@@ -5,7 +5,18 @@
   }
   to {
       transform: translateY(20vw);
+  } 
+  /* 0% {
+    transform: translateY(-13vw);
   }
+  98% {
+    transform: translateY(20vw);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(25vw);
+    opacity: 0;
+  } */
 }
 @keyframes fade_out_kf {
   from {
@@ -13,19 +24,27 @@
     opacity: 1;
    }
   to {
-    transform: translateY(20vw);
+    /* transform: translateY(20vw); */
     opacity: 0;
+    }
+}
+@keyframes fade_in_kf {
+  from {
+    opacity: 0;
+   }
+  to {
+    opacity: 1;
     }
 } 
 
 
 .fall_waterdrop_1 {
-  animation: fall_kf 2s 1 linear forwards,
-             fade_out_kf 0.3s 2s 1 linear forwards;
+  animation: fall_kf 3s 1 linear forwards,
+             fade_out_kf 0.3s 2.8s 1 linear forwards;
 }
 .fall_waterdrop_2 {
-  animation: fall_kf 2s 1s 1 linear both,
-             fade_out_kf 0.3s 3s 1 linear forwards;
+  animation: fall_kf 3s 1s 1 linear both,
+             fade_out_kf 0.3s 3.8s 1 linear forwards;
 }
 .fall_heart {
   animation: fall_kf 2s 2s 1 linear both,
@@ -39,31 +58,14 @@
 }
 
 .disappear {
-  animation: fade_out_kf 0.2s 1 linear delay forwards;
+  animation: fade_out_kf 0.2s 1 linear forwards;
 }
 .pause {
   animation-play-state: paused;
 }
 
-
-/* 
-.paused {
-  animation-play-state: paused;
+.flash {
+  animation: fade_in_kf 2s 1 linear forwards,
+             fade_out_kf 2s 1 linear forwards;
 }
 
-.dissapear {
-animation-name: dissapear_kf;
-animation-duration: 2s;
-animation-iteration-count: 1;
-animation-timing-function: ease-in;
-animation-fill-mode: forwards;
-}
-
-@keyframes dissappear_kf {
-from {
-  transform: scale(1);
-}
-to {
-  transform: scale(0);
-}
-} */
