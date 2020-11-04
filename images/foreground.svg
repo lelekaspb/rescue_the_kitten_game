@@ -1,18 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1995" height="240" viewBox="0 0 1995 240">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1995" height="248" viewBox="0 0 1995 248">
   <defs>
     <style>
       .cls-1 {
-        filter: url(#AI_GaussianBlur_7);
+        filter: url(#AI_GaussianBlur_4);
       }
 
       .cls-2 {
         fill: url(#linear-gradient);
       }
     </style>
-    <filter id="AI_GaussianBlur_7" name="AI_GaussianBlur_7">
-      <feGaussianBlur stdDeviation="7"/>
+    <filter id="AI_GaussianBlur_4" name="AI_GaussianBlur_4">
+      <feGaussianBlur stdDeviation="4"/>
     </filter>
-    <linearGradient id="linear-gradient" x1="992.18" y1="500.33" x2="997.1" y2="10.35" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="991.35" y1="589.5" x2="997.33" y2="-6.85" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff"/>
       <stop offset="0.05" stop-color="#f3effb"/>
       <stop offset="0.24" stop-color="#c7b4ed"/>
@@ -23,9 +23,9 @@
       <stop offset="1" stop-color="#6129cc"/>
     </linearGradient>
   </defs>
-  <g id="Layer_1" data-name="Layer 1">
+  <g id="foreground">
     <g class="cls-1">
-      <path class="cls-2" d="M1956,202q-751.73-74.37-1920,0V37H1956Z"/>
+      <path class="cls-2" d="M1956,228.5q-751.73-92.4-1920,0V23.5H1956Z"/>
     </g>
   </g>
 </svg>

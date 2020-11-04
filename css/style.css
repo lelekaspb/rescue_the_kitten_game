@@ -78,12 +78,25 @@ aside {
   top: 19.7vw;
 }
 
+/* #mouth_fill {
+  background-image: url('../images/mouth_fill.svg');
+  background-size: 100%;
+  position: absolute;
+  width: 0.8vw;
+  height: 0.8vw;
+}
+.pos25 {
+  left: 56.65vw;
+  top: 20.8vw;
+} */
+
 #fire {
   background-image: url('../images/fire_big.svg');
   background-size: 100%;
   position: absolute;
   width: 8.5vw;
   height: 9vw;
+  filter: blur(0.05vw); 
 }
 .pos2 {
   left: 15vw;
@@ -97,6 +110,7 @@ aside {
   width: 6vw;
   height: 6vw;
   z-index: 1;
+  filter: blur(0.05vw); 
 }
 .pos3 {
   left: 27vw;
@@ -104,6 +118,14 @@ aside {
 }
 .pos4 {
   left: 40vw;
+  top: 14vw;
+}
+.pos26 {
+  left: 30vw;
+  top: 14vw;
+}
+.pos27 {
+  left: 23vw;
   top: 14vw;
 }
 
@@ -133,7 +155,7 @@ aside {
   z-index: 1;
 }
 .pos21 {
-  top: 13vw;
+  top: 14vw;
   left: 30vw;
 }
 
@@ -144,7 +166,7 @@ aside {
   width: 82vw;
   height: 10vw;
   margin: 0;
-  top: -1vw;
+  top: -0.5vw;
   left: -1vw;
 }
 
@@ -318,8 +340,8 @@ aside {
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
-  width: 2vw;
-  height: 1.5vw;
+  width: 2.1vw;
+  height: 2.55vw;
   opacity: 0; 
 }
 .pos22 {

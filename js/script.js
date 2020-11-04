@@ -1,5 +1,5 @@
 
-
+// click functions
 function waterClick1() {
   // count +1 waterdrop
   console.log("function waterclick1");
@@ -73,6 +73,10 @@ function start() {
   document.querySelector("#firedrop2_sprite").classList.add("pos4");
   document.querySelector("#firedrop2_container").classList.add("fall_firedrop_2");
   document.querySelector("#firedrop2_sprite").addEventListener("click", fireClick2);
+
+  // document.querySelector("#firedrop3_sprite").classList.add("pos26");
+  // document.querySelector("#firedrop3_container").classList.add("fall_firedrop_3");
+  // document.querySelector("#firedrop3_sprite").addEventListener("click", fireClick3);
 }
 
 function restart_waterdrop1() {

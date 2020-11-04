@@ -1,4 +1,98 @@
+/* fire animations */
+.fire_animation {
+  transform-origin:center bottom;
+  animation-name: fire_animation_kf;
+  animation-duration:2s;
+  /* animation-delay:200ms; */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes fire_animation_kf {
+  0%   {
+    transform: skew(1deg);
+  }
+  20%  {
+    transform: skew(1deg);
+  }
+  40%  {
+    transform: skew(-1deg);
+  }
+  60%  {
+    transform: skew(1deg) scaleY(1.02);
+  }
+  80%  {
+    transform: skew(-1deg) scaleY(0.98);
+  }
+  100% {
+    transform: skew(1deg);
+  }
+}
 
+.fire_animation_1 {
+  transform-origin:center bottom;
+  animation-name: fire_animation_1_kf;
+  animation-duration:2.5s;
+  /* animation-delay:200ms; */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes fire_animation_1_kf {
+  0%   {
+    transform: skew(-1deg);
+  }
+  20%  {
+    transform: skew(-1deg);
+  }
+  40%  {
+    transform: skew(1deg);
+  }
+  60%  {
+    transform: skew(1deg) scaleY(0.95);
+  }
+  80%  {
+    transform: skew(-1deg) scaleY(1.1);
+  }
+  100% {
+    transform: skew(1deg);
+  }
+}
+
+.fire_animation_2 {
+  transform-origin:center bottom;
+  animation-name: fire_animation_2_kf;
+  animation-duration:3s;
+  /* animation-delay:200ms; */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes fire_animation_2_kf {
+  0%   {
+    transform: skew(3deg);
+  }
+  20%  {
+    transform: skew(-2deg);
+  }
+  40%  {
+    transform: skew(1deg);
+  }
+  60%  {
+    transform: skew(-2deg) scaleY(0.97);
+  }
+  80%  {
+    transform: skew(-1deg) scaleY(1.15);
+  }
+  100% {
+    transform: skew(2deg);
+  }
+}
+
+
+
+
+/* fall & pause & disappear aniations */
 @keyframes fall_kf {
   from {
       transform: translateY(-13vw); 
@@ -6,25 +100,12 @@
   to {
       transform: translateY(20vw);
   } 
-  /* 0% {
-    transform: translateY(-13vw);
-  }
-  98% {
-    transform: translateY(20vw);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(25vw);
-    opacity: 0;
-  } */
 }
 @keyframes fade_out_kf {
   from {
-    /* transform: translateY(20vw); */
     opacity: 1;
    }
   to {
-    /* transform: translateY(20vw); */
     opacity: 0;
     }
 }
@@ -69,3 +150,9 @@
              fade_out_kf 2s 1 linear forwards;
 }
 
+
+
+/* mouth opening animation */
+/* .mouth_open {
+  animation: mouth_open_kf 2s 10s 1 linear forwards;
+} */
