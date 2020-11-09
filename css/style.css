@@ -103,13 +103,19 @@ aside {
   top: 30vw;
 }
 
+.sprite1,
+.sprite2,
+.sprite5 {
+  cursor: pointer;
+}
+
 .sprite1 {
   background-image: url('../images/firedrop.svg');
   background-size: 100%;
   position: absolute;
   width: 6vw;
   height: 6vw;
-  z-index: 1;
+  /* z-index: 1; */
   filter: blur(0.05vw); 
 }
 .pos3 {
@@ -121,12 +127,20 @@ aside {
   top: 14vw;
 }
 .pos26 {
-  left: 30vw;
+  left: 35vw;
   top: 14vw;
 }
 .pos27 {
   left: 23vw;
   top: 14vw;
+}
+.pos28 {
+  top: 14vw;
+  left: 45vw;
+}
+.pos29 {
+  top: 14vw;
+  left: 30vw;
 }
 
 .sprite2 {
@@ -145,6 +159,59 @@ aside {
   left: 43vw;
   top: 14vw;
 }
+
+#heart_container {
+  position: absolute;
+}
+
+#waterdrop1_container {
+  position: absolute;
+}
+#waterdrop2_container {
+  position: absolute;
+}
+#waterdrop3_container {
+  position: absolute;
+}
+/* classes for random positioning of the waterdrops */
+.position1 {
+  left: 28vw;
+  top: 14vw;
+}
+.position2 {
+  left: 41vw;
+  top: 14vw;
+}
+.position3 {
+  left: 36vw;
+  top: 14vw;
+}
+.position4 {
+  left: 24vw;
+  top: 14vw;
+}
+.position5 {
+  top: 14vw;
+  left: 46vw;
+}
+.position6 {
+  top: 14vw;
+  left: 31vw;
+}
+.position7 {
+  left: 34vw;
+  top: 14vw;
+}
+.position8 {
+  left: 44vw;
+  top: 14vw;
+}
+.position9{
+  top: 14vw;
+  left: 38vw;
+}
+
+
 
 .sprite5 {
   background-image: url('../images/heart_big.svg');
