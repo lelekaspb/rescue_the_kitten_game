@@ -36,25 +36,28 @@ function heartClick() {
 
 
  function fireClick1() { 
-  document.querySelector("#life"+lives).classList.remove("sprite3");
-  document.querySelector("#life"+lives).classList.add("sprite4");
-  lives--;
-  //console.log("function fireclick1");
-  document.querySelector(".minus_heart").classList.add("flash");
-  document.querySelector("#firedrop1_container").classList.add("pause");
-  document.querySelector("#firedrop1_sprite").classList.add("disappear");
-  restart_firedrop1();
+    document.querySelector("#life"+lives).classList.remove("sprite3");
+    document.querySelector("#life"+lives).classList.add("sprite4");
+    lives--;
+    console.log("function fireclick1");
+    document.querySelector(".minus_heart").classList.add("flash");
+    document.querySelector("#firedrop1_container").classList.add("pause");
+    //this.classList.add("pause");
+    document.querySelector("#firedrop1_sprite").classList.add("disappear");
+    //this.firstElementChild.classList.add("disappear");
+    //this.addEventListener("animationend", restart_firedrop1);
+    restart_firedrop1();
  }
 
- function fireClick2() { 
-  document.querySelector("#life"+lives).classList.remove("sprite3");
-  document.querySelector("#life"+lives).classList.add("sprite4");
-  lives--;
-  //console.log("function fireclick2");
-  document.querySelector(".minus_heart").classList.add("flash");
-  document.querySelector("#firedrop2_container").classList.add("pause");
-  document.querySelector("#firedrop2_sprite").classList.add("disappear");
-  restart_firedrop2();
+  function fireClick2() { 
+    document.querySelector("#life"+lives).classList.remove("sprite3");
+    document.querySelector("#life"+lives).classList.add("sprite4");
+    lives--;
+    //console.log("function fireclick2");
+    document.querySelector(".minus_heart").classList.add("flash");
+    document.querySelector("#firedrop2_container").classList.add("pause");
+    document.querySelector("#firedrop2_sprite").classList.add("disappear");
+    restart_firedrop2();
   }
 
 function fireClick3() { 
@@ -136,30 +139,32 @@ function start() {
   document.querySelector("#heart_container").addEventListener("click", heartClick);
   document.querySelector("#heart_container").addEventListener("animationiteration", newPos);
 
+
+
  document.querySelector("#firedrop1_sprite").classList.add("pos3");
  document.querySelector("#firedrop1_container").classList.add("fall_firedrop_1");
-  document.querySelector("#firedrop1_sprite").addEventListener("click", fireClick1);
+  document.querySelector("#firedrop1_container").addEventListener("click", fireClick1);
 
 
   document.querySelector("#firedrop2_sprite").classList.add("pos4");
   document.querySelector("#firedrop2_container").classList.add("fall_firedrop_2");
-  document.querySelector("#firedrop2_sprite").addEventListener("click", fireClick2);
+  document.querySelector("#firedrop2_container").addEventListener("click", fireClick2);
 
   document.querySelector("#firedrop3_sprite").classList.add("pos26");
   document.querySelector("#firedrop3_container").classList.add("fall_firedrop_3");
-  document.querySelector("#firedrop3_sprite").addEventListener("click", fireClick3);
+  document.querySelector("#firedrop3_container").addEventListener("click", fireClick3);
 
   document.querySelector("#firedrop4_sprite").classList.add("pos27");
   document.querySelector("#firedrop4_container").classList.add("fall_firedrop_4");
-  document.querySelector("#firedrop4_sprite").addEventListener("click", fireClick4);
+  document.querySelector("#firedrop4_container").addEventListener("click", fireClick4);
 
   document.querySelector("#firedrop5_sprite").classList.add("pos28");
   document.querySelector("#firedrop5_container").classList.add("fall_firedrop_5");
-  document.querySelector("#firedrop5_sprite").addEventListener("click", fireClick5);
+  document.querySelector("#firedrop5_container").addEventListener("click", fireClick5);
 
   document.querySelector("#firedrop6_sprite").classList.add("pos29");
   document.querySelector("#firedrop6_container").classList.add("fall_firedrop_6");
-  document.querySelector("#firedrop6_sprite").addEventListener("click", fireClick6);
+  document.querySelector("#firedrop6_container").addEventListener("click", fireClick6);
 }
 
 // restart animations
@@ -195,12 +200,19 @@ function restart_heart() {
 }
 
  function restart_firedrop1() {
-  //console.log("restart firedrop1");
-  setTimeout(function() {
+  console.log("restart firedrop1");
+  setTimeout( ()  =>  {
     document.querySelector("#firedrop1_container").classList.remove("pause");
     document.querySelector("#firedrop1_container").classList.remove("fall_firedrop_1");
+    // this.classList.value= "";
+    // this.offsetHeight;
+    // this.firstElementChild.classList.remove("disappear");
+    // let randPos = Math.floor(Math.random()*9)+1;
+    // console.log(randPos);
+    // this.firstElementChild.classList.add("pos3");
     document.querySelector("#firedrop1_sprite").classList.remove("disappear");
-    // document.querySelector("#firedrop1_sprite").classList.remove("pos3");
+    // this.classList.add("fall_firedrop_1");
+    document.querySelector("#firedrop1_sprite").classList.remove("pos3");
     document.querySelector(".minus_heart").classList.remove("flash");
     document.querySelector("#firedrop1_container").offsetHeight;
     start();
@@ -208,7 +220,7 @@ function restart_heart() {
  }
 
  function restart_firedrop2() {
-  //console.log("restart firedrop2");
+  console.log("restart firedrop2");
   setTimeout(function() {
     document.querySelector("#firedrop2_container").classList.remove("pause");
     document.querySelector("#firedrop2_container").classList.remove("fall_firedrop_2");
