@@ -505,6 +505,8 @@ main {
 #title_screen_btn {
   background-image: url('../images/button_play.svg');
   background-size: 100%;
+  cursor: pointer;
+  /* z-index: 1; */
 }
 .fire_title {
   background-image: url('../images/fire_big.svg');
@@ -537,6 +539,7 @@ main {
   width: 6vw;
   height: 6vw;
   position: absolute;
+  cursor: pointer;
 }
 .pos20 {
   top: 33vw;
@@ -555,6 +558,7 @@ main {
 #restart_game_btn{
   background-image: url('../images/button_try_again.svg');
   background-size: 100%;
+  cursor: pointer;
 }
 
 #level_complete {
