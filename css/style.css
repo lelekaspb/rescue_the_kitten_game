@@ -183,6 +183,25 @@ aside {
 #waterdrop3_container {
   position: absolute;
 }
+
+#firedrop1_container {
+  position: absolute;
+}
+#firedrop2_container {
+  position: absolute;
+}
+#firedrop3_container {
+  position: absolute;
+}
+#firedrop4_container {
+  position: absolute;
+}
+#firedrop5_container {
+  position: absolute;
+}
+#firedrop6_container {
+  position: absolute;
+}
 /* classes for random positioning of the waterdrops */
 .position1 {
   left: 28vw;
@@ -323,8 +342,8 @@ aside {
   background-image: url('../images/settings.svg');
   background-size: 100%;
   position: absolute;
-  width: 3vw;
-  height: 2.7vw;
+  width: 3.4vw;
+  height: 2.9vw;
   top: 1.5vw;
   left: 76vw;
   cursor: pointer;

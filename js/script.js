@@ -12,7 +12,7 @@ document.querySelector("#score_number").textContent=points;
 
 //start animations
 function start() {
-  //console.log("function start");
+  console.log("function start");
 
   timeLeft = 60;
   lives = 3;
@@ -22,7 +22,7 @@ function start() {
 
   startTimer();
 
-
+  document.querySelector("#time_background").classList.remove("shrink");
   document.querySelector("#time_background").classList.add("shrink");
   document.querySelector("#time_background").addEventListener("animationend", removeShrink)
   ;
@@ -51,34 +51,37 @@ function start() {
 
 
 
- document.querySelector("#firedrop1_sprite").classList.add("pos3");
+ document.querySelector("#firedrop1_container").classList.add("pos3");
  document.querySelector("#firedrop1_container").classList.add("fall_firedrop_1");
   document.querySelector("#firedrop1_container").addEventListener("click", fireClick1);
 
 
-  document.querySelector("#firedrop2_sprite").classList.add("pos4");
+  document.querySelector("#firedrop2_container").classList.add("pos4");
   document.querySelector("#firedrop2_container").classList.add("fall_firedrop_2");
   document.querySelector("#firedrop2_container").addEventListener("click", fireClick2);
 
-  document.querySelector("#firedrop3_sprite").classList.add("pos26");
+  document.querySelector("#firedrop3_container").classList.add("pos26");
   document.querySelector("#firedrop3_container").classList.add("fall_firedrop_3");
   document.querySelector("#firedrop3_container").addEventListener("click", fireClick3);
 
-  document.querySelector("#firedrop4_sprite").classList.add("pos27");
+  document.querySelector("#firedrop4_container").classList.add("pos27");
   document.querySelector("#firedrop4_container").classList.add("fall_firedrop_4");
   document.querySelector("#firedrop4_container").addEventListener("click", fireClick4);
 
-  document.querySelector("#firedrop5_sprite").classList.add("pos28");
+  document.querySelector("#firedrop5_container").classList.add("pos28");
   document.querySelector("#firedrop5_container").classList.add("fall_firedrop_5");
   document.querySelector("#firedrop5_container").addEventListener("click", fireClick5);
 
-  document.querySelector("#firedrop6_sprite").classList.add("pos29");
+  document.querySelector("#firedrop6_container").classList.add("pos29");
   document.querySelector("#firedrop6_container").classList.add("fall_firedrop_6");
   document.querySelector("#firedrop6_container").addEventListener("click", fireClick6);
 
     // Adding click event to new pause button
     document.querySelector("#settings").addEventListener("click", openSettings);
     document.querySelector("#pause").addEventListener("click", pauseGame);
+
+    // Adding click event to restart button
+    document.querySelector("#restart").addEventListener("click", restartOnButton);
 }
 
 
@@ -228,13 +231,13 @@ function fireClick6() {
 // restart animations
 function restart_waterdrop1() {
   setTimeout ( () => {
-    console.log("function restart waterdrop1");
-    console.log(this);
+    //console.log("function restart waterdrop1");
+    //console.log(this);
     this.classList.value= "";
     this.offsetHeight;
     this.firstElementChild.classList.remove("disappear");
     let randPos = Math.floor(Math.random()*9)+1;
-    console.log(randPos);
+    //console.log(randPos);
     this.classList.add("position" + randPos);
     this.classList.add("fall_waterdrop_1");
     document.querySelector(".plus_waterdrop").classList.remove("flash");
@@ -258,7 +261,7 @@ function restart_heart() {
 }
 
  function restart_firedrop1() {
-  console.log("restart firedrop1");
+  //console.log("restart firedrop1");
   setTimeout( ()  =>  {
     document.querySelector("#firedrop1_container").classList.remove("pause");
     document.querySelector("#firedrop1_container").classList.remove("fall_firedrop_1");
@@ -547,3 +550,8 @@ function restartGame() {
 
 
 
+// function that restarts the game after clicking on the restart button
+function restartOnButton() {
+  console.log("restartOnButton function");
+  location.reload();
+}
