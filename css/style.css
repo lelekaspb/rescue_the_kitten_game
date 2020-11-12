@@ -78,17 +78,21 @@ aside {
   top: 19.7vw;
 }
 
-/* #mouth_fill {
+#mouth_fill {
   background-image: url('../images/mouth_fill.svg');
   background-size: 100%;
   position: absolute;
-  width: 0.8vw;
-  height: 0.8vw;
+  width: 0.85vw;
+  height: 0.6vw;
+  transform-origin: top center;
+  background-repeat: no-repeat;
+  left: 56.6vw; 
+  top: 20.7vw; 
 }
-.pos25 {
-  left: 56.65vw;
-  top: 20.8vw;
+/* .pos25 {
+
 } */
+
 
 #fire {
   background-image: url('../images/fire_big.svg');
@@ -149,7 +153,7 @@ aside {
   position: absolute;
   width: 5vw;
   height: 5vw;
-  z-index: 1;
+  /* z-index: 1; */
 }
 .pos5 {
   left: 33vw;
@@ -160,6 +164,12 @@ aside {
   top: 14vw;
 }
 
+/* #firedrop5_container {
+  position: absolute;
+}
+#firedrop1_container {
+  position: absolute;
+} */
 #heart_container {
   position: absolute;
 }
@@ -219,7 +229,7 @@ aside {
   position: absolute;
   width: 5vw;
   height: 5vw;
-  z-index: 1;
+  /* z-index: 1; */
 }
 .pos21 {
   top: 14vw;
@@ -291,11 +301,14 @@ aside {
   position: absolute;
   width: 22.5vw;
   height: 4vw;
-}
-.pos11 {
   top: 1.55vw;
   left: 30vw;
+  transform-origin: left bottom;
 }
+/* .pos11 {
+  top: 1.55vw;
+  left: 30vw;
+} */
 #time_foreground {
   background-image: url('../images/timebar_foreground.svg');
   background-size: 100%;
@@ -314,6 +327,7 @@ aside {
   height: 2.7vw;
   top: 1.5vw;
   left: 76vw;
+  cursor: pointer;
 }
 
 #settings_clicked {  
@@ -336,6 +350,7 @@ aside {
   position: absolute;
   width: 3vw;
   height: 3vw;
+  cursor: pointer;
 }
 .pos14 {
   top: 5.5vw;
@@ -348,6 +363,7 @@ aside {
   position: absolute;
   width: 3vw;
   height: 3vw;
+  cursor: pointer;
 }
 .pos15 {
   top: 5.5vw;
@@ -360,6 +376,7 @@ aside {
   position: absolute;
   width: 3vw;
   height: 3vw;
+  cursor: pointer;
 }
 .pos16 {
   top: 5.5vw;
@@ -372,6 +389,7 @@ aside {
   position: absolute;
   width: 3vw;
   height: 3vw;
+  cursor: pointer;
 }
 .pos17 {
   top: 5.5vw;
@@ -384,6 +402,7 @@ aside {
   position: absolute;
   width: 3vw;
   height: 3vw;
+  cursor: pointer;
 }
 .pos18 {
   top: 5.5vw;
@@ -396,6 +415,7 @@ aside {
   position: absolute;
   width: 3vw;
   height: 3vw;
+  cursor: pointer;
 }
 .pos19 {
   top: 5.5vw;
@@ -463,10 +483,24 @@ main {
   top: 0;
   left: 0;
 }
-#title_screen div {
+#title_screen_btn {
   background-image: url('../images/button_play.svg');
   background-size: 100%;
 }
+.fire_title {
+  background-image: url('../images/fire_big.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 19vw;
+  height: 21vw;
+  filter: blur(0.05vw); 
+  left: 3vw;
+  top: 21vw;
+}
+
+
+
 
 #instructions {
   background-image: url('../images/instructions_screen.svg');
@@ -478,7 +512,7 @@ main {
   left: 0;
 }
 
-#instructions div {
+#instructions_button {
   background-image: url('../images/instructions_arrow_icon.svg');
   background-size: 100%;
   width: 6vw;
@@ -499,7 +533,7 @@ main {
   top: 0;
   left: 0;
 }
-#game_over div {
+#restart_game_btn{
   background-image: url('../images/button_try_again.svg');
   background-size: 100%;
 }

@@ -24,14 +24,18 @@
       <div id="game">
         <div id="game_background"> </div>
         <div id="kittens_mouth" class="pos1"></div>
-        <!-- <div id="mouth_fill" class="pos25 mouth_open"></div> -->
+        <div id="mouth_fill_container" >
+          <div id="mouth_fill" class="mouth_open"></div>
+        </div>
         <div id="fire" class="pos2 fire_animation"></div>
         <div id="game_sprites"> 
 
           <div id="firedrop1_container">
             <div id="firedrop1_sprite" class="sprite1 fire_animation_1"></div>
           </div>
+
           <div class="minus_heart pos24"></div>
+
           <div id="firedrop2_container">
             <div id="firedrop2_sprite" class="sprite1 fire_animation_2"></div>
           </div>
@@ -76,29 +80,36 @@
             <div id="life3" class="sprite3 pos10"></div>
           </div>
           <div id="time_board">
-            <div id="time_background" class="pos11"></div>
+            <div id="time_background_container">
+              <div id="time_background"></div>
+            </div>
             <div id="time_foreground"></div>
           </div>
           <div id="settings"></div>
-          <div id="settings_clicked" class="pos13 hidden"></div>
-          <div id="pause" class="pos14 hidden"></div>
-          <div id="play" class="pos15 hidden"></div>
-          <div id="restart" class="pos16 hidden"></div>
-          <div id="exit" class="pos17 hidden"></div>
-          <div id="sound" class="pos18 hidden"></div>
-          <div id="no_sound" class="pos19 hidden"></div>
+          <div id="settings_open" class="hidden">
+            <div id="settings_clicked" class="pos13"></div>
+            <div id="pause" class="pos14"></div>
+            <div id="play" class="pos15"></div>
+            <div id="restart" class="pos16"></div>
+            <div id="exit" class="pos17"></div>
+            <div id="sound" class="pos18"></div>
+            <div id="no_sound" class="pos19"></div>
+          </div>
         </div>
       </div>
 
     </section>
+
     <section id="title_screen" class="hidden">
-      <div class="pos12"></div>
+      <div class="fire_title fire_animation_2"></div>
+      <div id="title_screen_btn" class="pos12"></div>
     </section>
     <section id="instructions" class="hidden">
-      <div class="pos20"></div>
+      <div id="instructions_button" class="pos20 forward"></div>
     </section>
     <section id="game_over" class="hidden">
-      <div class="pos12"></div>
+      <div class="fire_title fire_animation_2"></div>
+      <div id="restart_game_btn" class="pos12"></div>
     </section>
     <section id="level_complete" class="hidden">
       <div class="pos12"></div>
