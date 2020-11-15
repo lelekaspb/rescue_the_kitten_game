@@ -31,31 +31,56 @@
         <div id="game_sprites"> 
 
           <div id="firedrop1_container">
-            <div id="firedrop1_sprite" class="sprite1 fire_animation_1"></div>
+            <div id="firedrop1_sprite" class="sprite1"></div>
           </div>
 
-          <div class="minus_heart pos24"></div>
+
+          <!-- minus heart -->
+          <div id="minus_heart_container">
+            <div id="minus_heart"></div>
+          </div>
 
           <div id="firedrop2_container">
-            <div id="firedrop2_sprite" class="sprite1 fire_animation_2"></div>
+            <div id="firedrop2_sprite" class="sprite1"></div>
           </div>
           <div id="firedrop3_container">
-            <div id="firedrop3_sprite" class="sprite1 fire_animation_1"></div>
+            <div id="firedrop3_sprite" class="sprite1"></div>
           </div>
           <div id="firedrop4_container">
-            <div id="firedrop4_sprite" class="sprite1 fire_animation_2"></div>
+            <div id="firedrop4_sprite" class="sprite1"></div>
           </div>
           <div id="firedrop5_container">
-            <div id="firedrop5_sprite" class="sprite1 fire_animation"></div>
+            <div id="firedrop5_sprite" class="sprite1"></div>
           </div>
           <div id="firedrop6_container">
-            <div id="firedrop6_sprite" class="sprite1 fire_animation_2"></div>
+            <div id="firedrop6_sprite" class="sprite1"></div>
+          </div>
+
+          <div id="firedrop7_container">
+            <div id="firedrop7_sprite" class="sprite1"></div>
+          </div>
+          <div id="firedrop8_container">
+            <div id="firedrop8_sprite" class="sprite1"></div>
+          </div>
+          <div id="firedrop9_container">
+            <div id="firedrop9_sprite" class="sprite1"></div>
+          </div>
+          <div id="firedrop10_container">
+            <div id="firedrop10_sprite" class="sprite1"></div>
+          </div>
+          <div id="firedrop11_container">
+            <div id="firedrop11_sprite" class="sprite1"></div>
           </div>
 
           <div id="waterdrop1_container"> 
             <div id="waterdrop1_sprite" class="sprite2"></div>
           </div>
-          <div class="plus_waterdrop pos22"></div>
+
+          <!-- plus waterdrop -->
+          <div id="plus_waterdrop_container">
+            <div id="plus_waterdrop"></div>
+          </div>
+
           <div id="waterdrop2_container">
             <div id="waterdrop2_sprite" class="sprite2"></div>
           </div>
@@ -66,9 +91,16 @@
           <div id="heart_container">
             <div id="heart_sprite" class="sprite5"></div>
           </div>
-          <div class="plus_heart pos23"></div>
+
+          <!-- plus heart -->
+          <div id="plus_heart_container">
+            <div id="plus_heart"></div>
+          </div>
+
         </div>
+        <div id="under_foreground"></div>
         <div id="game_foreground"> </div>
+        
         <div id="game_ui">
           <div id="score_board">
             <div id="score_number"></div>
@@ -101,18 +133,52 @@
     </section>
 
     <section id="title_screen" class="hidden">
+      <div id="logo">
+        <img src="images/logo.svg" alt="logo">
+      </div>
+      <p>oh no!</p>
+      <p>Fire broke out in the library.</p>
+      <p>A poor little kitten is too scared to move.</p>
       <div class="fire_title fire_animation_2"></div>
-      <div id="title_screen_btn" class="pos12"></div>
+      <div id="title_screen_btn"></div>
+      <div id="title_screen_i"></div>
+      <div id="kitten_sad"></div>
     </section>
+    
     <section id="instructions" class="hidden">
-      <div id="instructions_button" class="pos20 forward"></div>
+      <article>
+        <p>Gather 20 waterdrops until time runs out in order to extinguish the fire.</p>
+        <p>Avoid clicking on firedrops as they will hurt you and take away one life every time.</p>
+        <p>You have three lives to begin with.</p>
+        <p>If you lose a life, you can get another one by clicking on a heart falling down.</p>
+      </article>
+      <footer id="instructions_footer">
+        <div id="instructions_button_back" class="pos22 backward"></div>
+        <p>Good luck!!!</p>
+        <div id="instructions_button" class="pos20 forward"></div>
+      </footer>
     </section>
+
     <section id="game_over" class="hidden">
-      <div class="fire_title fire_animation_2"></div>
-      <div id="restart_game_btn" class="pos12"></div>
+      <h1>oh no!</h1>
+      <article>
+        <p>the kitten is <br> still in danger</p>
+        <div id="fire_game_over" class="fire_animation_2"></div>
+      </article>
+      <div id="quit_game_over"></div>
+      <div id="restart_game_btn"></div>
     </section>
+
     <section id="level_complete" class="hidden">
-      <div class="pos12"></div>
+      <h1>Congratulations!!!</h1>
+      <article>
+        <p>You have saved <br> the kitten.</p>
+        <figure>
+          <img src="images/kitten_happy.svg" alt="illustration of a happy kitten">
+        </figure>
+      </article>
+      <div id="play_again_btn"></div>
+      <div id="quit_level_complete"></div>
     </section>
 
     <aside>

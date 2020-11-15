@@ -11,34 +11,59 @@ document.querySelector("#score_number").textContent=points;
 
 function welcome() {
   document.querySelector("#title_screen").classList.remove("hidden");
-  document.querySelector("#title_screen_btn").addEventListener("click", instructions);
+  document.querySelector("#game_screen").classList.add("hidden");
+  document.querySelector("#instructions").classList.add("hidden");
+  document.querySelector("#title_screen_i").addEventListener("click", instructions);
+  document.querySelector("#title_screen_btn").addEventListener("click", start);
 }
 
 function instructions() {
   document.querySelector("#title_screen").classList.add("hidden");
+  document.querySelector("#game_screen").classList.add("hidden");
   document.querySelector("#instructions").classList.remove("hidden");
   document.querySelector("#instructions_button").addEventListener("click", start);
+  document.querySelector("#instructions_button_back").addEventListener("click", welcome);
 }
 
-//start animations
+//start game
 function start() {
   console.log("function start");
-
- document.querySelector("#instructions").classList.add("hidden"); 
-
+  document.querySelector("#title_screen").classList.add("hidden");
+  document.querySelector("#instructions").classList.add("hidden"); 
+  document.querySelector("#game_screen").classList.remove("hidden");
+  clear();
+  console.log("classes cleared");
+  gameHasEnded = false;
+  startTimer();
+  console.log("started startTimer");
   timeLeft = 60;
   lives = 3;
   points = 0;
-
+  console.log("reset variables");
   document.querySelector("#score_number").textContent=points;
+  //console.log(timeLeft+" seconds left after starting start");
+  
+   setTimeout( ()=> {
+    
+    //console.log(timeLeft+" seconds left inside setTimeout");
+    document.querySelector("#time_background").classList.remove("shrink");
+    document.querySelector("#time_background").classList.add("shrink");
+    document.querySelector("#time_background").addEventListener("animationend", removeShrink);
+    startAnimations();
+    // Adding click event to pause button
+    document.querySelector("#settings").addEventListener("click", openSettings);
+    document.querySelector("#pause").addEventListener("click", pauseGame);  
+    // Adding click event to exit button
+    document.querySelector("#exit").addEventListener("click", exit);  
+    // Adding click event to restart button
+    document.querySelector("#restart").addEventListener("click", restartOnButton);
+   }, 500);
+  //console.log(timeLeft+" seconds left after setting setTimeout");
+}
 
-  startTimer();
 
-  document.querySelector("#time_background").classList.remove("shrink");
-  document.querySelector("#time_background").classList.add("shrink");
-  document.querySelector("#time_background").addEventListener("animationend", removeShrink)
-  ;
-
+//function that starts all the animations
+function startAnimations() {
   document.querySelector("#waterdrop1_container").classList.add("fall_waterdrop_1");
   document.querySelector("#waterdrop1_container").classList.add("pos5");
   document.querySelector("#waterdrop1_container").addEventListener("click", waterClick1);
@@ -56,17 +81,9 @@ function start() {
 
   document.querySelector("#heart_container").classList.add("hidden");
 
-  // document.querySelector("#heart_container").classList.add("pos21");
-  // document.querySelector("#heart_container").classList.add("fall_heart");
-  // document.querySelector("#heart_container").addEventListener("click", heartClick);
-  // document.querySelector("#heart_container").addEventListener("animationiteration", newPos);
-
-
-
  document.querySelector("#firedrop1_container").classList.add("pos3");
  document.querySelector("#firedrop1_container").classList.add("fall_firedrop_1");
   document.querySelector("#firedrop1_container").addEventListener("click", fireClick1);
-
 
   document.querySelector("#firedrop2_container").classList.add("pos4");
   document.querySelector("#firedrop2_container").classList.add("fall_firedrop_2");
@@ -88,26 +105,51 @@ function start() {
   document.querySelector("#firedrop6_container").classList.add("fall_firedrop_6");
   document.querySelector("#firedrop6_container").addEventListener("click", fireClick1);
 
-    // Adding click event to pause button
-    document.querySelector("#settings").addEventListener("click", openSettings);
-    document.querySelector("#pause").addEventListener("click", pauseGame);
+  document.querySelector("#firedrop1_sprite").classList.add("fire_animation_1");
+  document.querySelector("#firedrop2_sprite").classList.add("fire_animation_2");
+  document.querySelector("#firedrop3_sprite").classList.add("fire_animation_1");
+  document.querySelector("#firedrop4_sprite").classList.add("fire_animation_2");
+  document.querySelector("#firedrop5_sprite").classList.add("fire_animation");
+  document.querySelector("#firedrop6_sprite").classList.add("fire_animation_2");
 
-    // Adding click event to exit button
-    document.querySelector("#exit").addEventListener("click", exit);
+  console.log(timeLeft + "seconds left by the end of startAnimations function");
 
-    // Adding click event to restart button
-    document.querySelector("#restart").addEventListener("click", restartOnButton);
+  setTimeout ( () => {
+    
+    document.querySelector("#firedrop7_container").classList.add("pos25");
+    document.querySelector("#firedrop7_container").classList.add("fall_firedrop_2");
+    document.querySelector("#firedrop7_container").addEventListener("click", fireClick1);
+
+    document.querySelector("#firedrop8_container").classList.add("pos12");
+    document.querySelector("#firedrop8_container").classList.add("fall_firedrop_3");
+    document.querySelector("#firedrop8_container").addEventListener("click", fireClick1);
+
+    document.querySelector("#firedrop9_container").classList.add("pos24");
+    document.querySelector("#firedrop9_container").classList.add("fall_firedrop_4");
+    document.querySelector("#firedrop9_container").addEventListener("click", fireClick1);
+
+    document.querySelector("#firedrop10_container").classList.add("pos23");
+    document.querySelector("#firedrop10_container").classList.add("fall_firedrop_5");
+    document.querySelector("#firedrop10_container").addEventListener("click", fireClick1);
+
+    document.querySelector("#firedrop11_container").classList.add("pos11");
+    document.querySelector("#firedrop11_container").classList.add("fall_firedrop_6");
+    document.querySelector("#firedrop11_container").addEventListener("click", fireClick1);
+
+    document.querySelector("#firedrop7_sprite").classList.add("fire_animation_1");
+    document.querySelector("#firedrop8_sprite").classList.add("fire_animation_2");
+    document.querySelector("#firedrop9_sprite").classList.add("fire_animation_1");
+    document.querySelector("#firedrop10_sprite").classList.add("fire_animation_2");
+    document.querySelector("#firedrop11_sprite").classList.add("fire_animation");
+  }, 15000);
 }
-
-
-
 
 // heart sprite falling function
 function startHeart() {
   document.querySelector("#heart_container").classList.value= "";
   document.querySelector("#heart_container").offsetHeight;
   document.querySelector("#heart_sprite").classList.remove("disappear");
-  
+
   document.querySelector("#heart_container").classList.remove("hidden");
   document.querySelector("#heart_container").classList.add("pos21");
   document.querySelector("#heart_container").classList.add("fall_heart");
@@ -120,7 +162,11 @@ function startHeart() {
 function waterClick1() {
   points++;
   document.querySelector("#score_number").textContent=points;
-  document.querySelector(".plus_waterdrop").classList.add("flash");
+  document.querySelector("#plus_waterdrop").parentElement.classList.value="";
+  let randPos = Math.floor(Math.random()*9)+1;
+  document.querySelector("#plus_waterdrop").parentElement.classList.add("pos_popup_"+randPos);
+  document.querySelector("#plus_waterdrop").classList.add("flash");
+  document.querySelector("#plus_waterdrop").addEventListener("animationend", removeFlash);
   this.classList.add("pause");
   this.firstElementChild.classList.add("disappear");
   if (points >= 20) {
@@ -136,7 +182,11 @@ function heartClick() {
   document.querySelector("#life"+lives).classList.remove("sprite4");
   document.querySelector("#life"+lives).classList.add("sprite3");
   console.log("function heartClick");
-  document.querySelector(".plus_heart").classList.add("flash");
+  document.querySelector("#plus_heart").parentElement.classList.value="";
+  let randPos = Math.floor(Math.random()*9)+1;
+  document.querySelector("#plus_heart").parentElement.classList.add("pos_popup_"+randPos);
+  document.querySelector("#plus_heart").classList.add("flash");
+  document.querySelector("#plus_heart").addEventListener("animationend", removeFlash);
   this.classList.add("pause");
   this.firstElementChild.classList.add("disappear");
   if (lives < 3) {
@@ -156,12 +206,15 @@ function heartClick() {
   document.querySelector("#life"+lives).classList.add("sprite4");
   lives--;
   console.log("function fireclick1");
-  document.querySelector(".minus_heart").classList.add("flash");
-  document.querySelector(".minus_heart").addEventListener("animationend", removeFlash);
-  //this.classList.add("pause");
-  //document.querySelector("#firedrop1_sprite").classList.add("disappear");
-  //this.firstElementChild.classList.add("disappear");
-  //this.addEventListener("animationend", restart_firedrop1);
+  document.querySelector("#minus_heart").parentElement.classList.value="";
+  let randPos = Math.floor(Math.random()*9)+1;
+  document.querySelector("#minus_heart").parentElement.classList.add("pos_popup_"+randPos);
+  document.querySelector("#minus_heart").classList.add("flash");
+  document.querySelector("#minus_heart").addEventListener("animationend", removeFlash);
+  this.firstElementChild.classList.add("shake");
+  setTimeout ( () => {
+    this.firstElementChild.classList.remove("shake");
+  }, 1100);
   console.log("you have "+lives+" lives");
   if (lives <= 0) {
     console.log("call gameOver function");
@@ -170,97 +223,15 @@ function heartClick() {
     console.log("call startHeart function");
     startHeart();
   }
-  //startFiredrop1();
-  //restart_firedrop1();
+ 
  }
-
-  function fireClick2() { 
-    document.querySelector("#life"+lives).classList.remove("sprite3");
-    document.querySelector("#life"+lives).classList.add("sprite4");
-    lives--;
-    //console.log("function fireclick2");
-    document.querySelector(".minus_heart").classList.add("flash");
-    //document.querySelector("#firedrop2_container").classList.add("pause");
-    //document.querySelector("#firedrop2_sprite").classList.add("disappear");
-    if (lives <= 0) {
-      gameOver();
-    } else {
-      startHeart();
-    }
-    //restart_firedrop2();
-  }
-
-function fireClick3() { 
-  document.querySelector("#life"+lives).classList.add("sprite4");
-  document.querySelector("#life"+lives).classList.remove("sprite3");
-  //console.log("function fireclick3");
-  lives--;
-  //document.querySelector("#firedrop3_container").classList.add("pause");
-  document.querySelector(".minus_heart").classList.add("flash");
-  //document.querySelector("#firedrop3_sprite").classList.add("disappear");
-  if (lives <= 0) {
-    gameOver();
-  } else {
-    startHeart();
-  }
-  //restart_firedrop3();  
-}
-
-function fireClick4() { 
-  document.querySelector("#life"+lives).classList.remove("sprite3");
-  document.querySelector("#life"+lives).classList.add("sprite4");
-  lives--;
-  //console.log("function fireclick4");
-  document.querySelector(".minus_heart").classList.add("flash");
-  //document.querySelector("#firedrop4_container").classList.add("pause");
-  //document.querySelector("#firedrop4_sprite").classList.add("disappear");
-  if (lives <= 0) {
-    gameOver();
-  } else {
-    startHeart();
-  }
-  //restart_firedrop4();
-}
-
-function fireClick5() { 
-  document.querySelector("#life"+lives).classList.remove("sprite3");
-  document.querySelector("#life"+lives).classList.add("sprite4");
-  lives--;
-  //console.log("function fireclick5");
-  document.querySelector(".minus_heart").classList.add("flash");
-  //document.querySelector("#firedrop5_container").classList.add("pause");
-  //document.querySelector("#firedrop5_sprite").classList.add("disappear");
-  if (lives <= 0) {
-    gameOver();
-  } else {
-    startHeart();
-  }
-  //restart_firedrop5();
-}
-
-function fireClick6() { 
-  document.querySelector("#life"+lives).classList.remove("sprite3");
-  document.querySelector("#life"+lives).classList.add("sprite4");
-  lives--;
-  //console.log("function fireclick6");
-  document.querySelector(".minus_heart").classList.add("flash");
-  //document.querySelector("#firedrop6_container").classList.add("pause");
-  //document.querySelector("#firedrop6_sprite").classList.add("disappear");
-  if (lives <= 0) {
-    gameOver();
-  } else {
-    startHeart();
-  }
-  //restart_firedrop6();
-}
-
 
 
 
 // restart animations
 function restart_waterdrop1() {
   setTimeout ( () => {
-    //console.log("function restart waterdrop1");
+    console.log("function restart waterdrop1");
     //console.log(this);
     this.classList.value= "";
     this.offsetHeight;
@@ -269,7 +240,8 @@ function restart_waterdrop1() {
     //console.log(randPos);
     this.classList.add("position" + randPos);
     this.classList.add("fall_waterdrop_1");
-    document.querySelector(".plus_waterdrop").classList.remove("flash");
+    document.querySelector("#plus_waterdrop").classList.remove("flash");
+    console.log(timeLeft + "seconds left");
   }, 2000);
 }
 
@@ -285,83 +257,10 @@ function restart_heart() {
     //console.log(randPos);
     this.classList.add("position" + randPos);
     this.classList.add("fall_heart");
-    document.querySelector(".plus_heart").classList.remove("flash");
+    document.querySelector("#plus_heart").classList.remove("flash");
   }, 2000); // sth is wrong with heart reappearing after clicking on a firedrop - it disappears right after appearing on the top of the screeen
 }
 
-//  function restart_firedrop1() {
-//   //console.log("restart firedrop1");
-//   setTimeout( ()  =>  {
-//     document.querySelector("#firedrop1_container").classList.remove("pause");
-//     document.querySelector("#firedrop1_container").classList.remove("fall_firedrop_1");
-//     document.querySelector("#firedrop1_sprite").classList.remove("disappear");
-//     // this.classList.add("fall_firedrop_1");
-//     document.querySelector("#firedrop1_sprite").classList.remove("pos3");
-//     document.querySelector(".minus_heart").classList.remove("flash");
-//     document.querySelector("#firedrop1_container").offsetHeight;
-//     //start();
-//   }, 2000);
-//  }
-
-//  function restart_firedrop2() {
-//   console.log("restart firedrop2");
-//   setTimeout(function() {
-//     document.querySelector("#firedrop2_container").classList.remove("pause");
-//     document.querySelector("#firedrop2_container").classList.remove("fall_firedrop_2");
-//     document.querySelector("#firedrop2_sprite").classList.remove("disappear");
-//     document.querySelector(".minus_heart").classList.remove("flash");
-//     document.querySelector("#firedrop2_container").offsetHeight;
-//     //start();
-//   }, 2000);
-//  }
-
-//  function restart_firedrop3() {
-//   //console.log("restart firedrop3");
-//   setTimeout(function() {
-//     document.querySelector("#firedrop3_container").classList.remove("pause");
-//     document.querySelector("#firedrop3_container").classList.remove("fall_firedrop_3");
-//     document.querySelector("#firedrop3_sprite").classList.remove("disappear");
-//     document.querySelector(".minus_heart").classList.remove("flash");
-//     document.querySelector("#firedrop3_container").offsetHeight;
-//     //start();
-//   }, 2000);
-//  }
-
-//  function restart_firedrop4() {
-//   //console.log("restart firedrop4");
-//   setTimeout(function() {
-//     document.querySelector("#firedrop4_container").classList.remove("pause");
-//     document.querySelector("#firedrop4_container").classList.remove("fall_firedrop_4");
-//     document.querySelector("#firedrop4_sprite").classList.remove("disappear");
-//     document.querySelector(".minus_heart").classList.remove("flash");
-//     document.querySelector("#firedrop4_container").offsetHeight;
-//     //start();
-//   }, 2000);
-//  }
-
-//  function restart_firedrop5() {
-//   //console.log("restart firedrop5");
-//   setTimeout(function() {
-//     document.querySelector("#firedrop5_container").classList.remove("pause");
-//     document.querySelector("#firedrop5_container").classList.remove("fall_firedrop_5");
-//     document.querySelector("#firedrop5_sprite").classList.remove("disappear");
-//     document.querySelector(".minus_heart").classList.remove("flash");
-//     document.querySelector("#firedrop5_container").offsetHeight;
-//     //start();
-//   }, 2000);
-//  }
-
-//  function restart_firedrop6() {
-//   //console.log("restart firedrop6");
-//   setTimeout(function() {
-//     document.querySelector("#firedrop6_container").classList.remove("pause");
-//     document.querySelector("#firedrop6_container").classList.remove("fall_firedrop_6");
-//     document.querySelector("#firedrop6_sprite").classList.remove("disappear");
-//     document.querySelector(".minus_heart").classList.remove("flash");
-//     document.querySelector("#firedrop6_container").offsetHeight;
-//     //start();
-//   }, 2000);
-//  }
 
  // remove the shrink class from the time runner
  function removeShrink() {
@@ -401,9 +300,8 @@ function startTimer() {
       gameOver();
     } else {
       setTimeout(showTime, 1000);
-      // document.querySelector("#time_background").classList.add("shrink");
     }
-  }
+  } 
 }
 
 function showTime() {
@@ -416,40 +314,68 @@ function showTime() {
 }
 
 
+//function that removes animation and position classes, as well as the eventListeners
+function clear() {
+  document.querySelector("#waterdrop1_container").classList.value = "";
+  document.querySelector("#waterdrop2_container").classList.value = "";
+  document.querySelector("#waterdrop3_container").classList.value = "";
+  document.querySelector("#heart_container").classList.value = "";
+  document.querySelector("#firedrop1_container").classList.value = "";
+  document.querySelector("#firedrop2_container").classList.value = "";
+  document.querySelector("#firedrop3_container").classList.value = "";
+  document.querySelector("#firedrop4_container").classList.value = "";
+  document.querySelector("#firedrop5_container").classList.value = "";
+  document.querySelector("#firedrop6_container").classList.value = "";
+  document.querySelector("#firedrop7_container").classList.value = "";
+  document.querySelector("#firedrop8_container").classList.value = "";
+  document.querySelector("#firedrop9_container").classList.value = "";
+  document.querySelector("#firedrop10_container").classList.value = "";
+  document.querySelector("#firedrop11_container").classList.value = "";
+
+  document.querySelector("#firedrop1_sprite").classList.remove("fire_animation_1");
+  document.querySelector("#firedrop2_sprite").classList.remove("fire_animation_2");
+  document.querySelector("#firedrop3_sprite").classList.remove("fire_animation_1");
+  document.querySelector("#firedrop4_sprite").classList.remove("fire_animation_2");
+  document.querySelector("#firedrop5_sprite").classList.remove("fire_animation");
+  document.querySelector("#firedrop6_sprite").classList.remove("fire_animation_2");
+  document.querySelector("#firedrop7_sprite").classList.remove("fire_animation_2");
+  document.querySelector("#firedrop8_sprite").classList.remove("fire_animation_1");
+  document.querySelector("#firedrop9_sprite").classList.remove("fire_animation_2");
+  document.querySelector("#firedrop10_sprite").classList.remove("fire_animation");
+  document.querySelector("#firedrop11_sprite").classList.remove("fire_animation_2");
+
+  document.querySelector("#time_background").classList.value = "";
+
+  document.querySelector("#minus_heart").classList.remove("flash");
+
+  document.querySelector("#waterdrop1_container").removeEventListener("click", waterClick1);
+  document.querySelector("#waterdrop2_container").removeEventListener("click", waterClick1);
+  document.querySelector("#waterdrop3_container").removeEventListener("click", waterClick1);
+  document.querySelector("#heart_container").removeEventListener("click", heartClick);
+  document.querySelector("#firedrop1_container").removeEventListener("click", fireClick1);
+  document.querySelector("#firedrop2_container").removeEventListener("click", fireClick1);
+  document.querySelector("#firedrop3_container").removeEventListener("click", fireClick1);
+  document.querySelector("#firedrop4_container").removeEventListener("click", fireClick1);
+  document.querySelector("#firedrop5_container").removeEventListener("click", fireClick1);
+  document.querySelector("#firedrop6_container").removeEventListener("click", fireClick1);
+  document.querySelector("#firedrop7_container").removeEventListener("click", fireClick1);
+  document.querySelector("#firedrop8_container").removeEventListener("click", fireClick1);
+  document.querySelector("#firedrop9_container").removeEventListener("click", fireClick1);
+  document.querySelector("#firedrop10_container").removeEventListener("click", fireClick1);
+  document.querySelector("#firedrop11_container").removeEventListener("click", fireClick1);
+}
+
 // game over function
 function gameOver() {
+  document.querySelector("#game_screen").classList.add("hidden");
   console.log("game over function");
+  console.log(gameOver.caller);
   if (gameHasEnded == false) {
-    // here I have to remove all the falling classes from containers, remove eventListeners, add "restart button", and change the gameHasEnded to true
-    document.querySelector("#waterdrop1_container").classList.value = "";
-    document.querySelector("#waterdrop2_container").classList.value = "";
-    document.querySelector("#waterdrop3_container").classList.value = "";
-    document.querySelector("#heart_container").classList.value = "";
-    document.querySelector("#firedrop1_container").classList.value = "";
-    document.querySelector("#firedrop2_container").classList.value = "";
-    document.querySelector("#firedrop3_container").classList.value = "";
-    document.querySelector("#firedrop4_container").classList.value = "";
-    document.querySelector("#firedrop5_container").classList.value = "";
-    document.querySelector("#firedrop6_container").classList.value = "";
-
-    document.querySelector("#time_background").classList.value = "";
-
-    document.querySelector("#waterdrop1_container").removeEventListener("click", waterClick1);
-    document.querySelector("#waterdrop2_container").removeEventListener("click", waterClick1);
-    document.querySelector("#waterdrop3_container").removeEventListener("click", waterClick1);
-    document.querySelector("#heart_container").removeEventListener("click", heartClick);
-    document.querySelector("#firedrop1_container").removeEventListener("click", fireClick1);
-    document.querySelector("#firedrop2_container").removeEventListener("click", fireClick2);
-    document.querySelector("#firedrop3_container").removeEventListener("click", fireClick3);
-    document.querySelector("#firedrop4_container").removeEventListener("click", fireClick4);
-    document.querySelector("#firedrop5_container").removeEventListener("click", fireClick5);
-    document.querySelector("#firedrop6_container").removeEventListener("click", fireClick6);
-
+    clear();
     document.querySelector("#game_over").classList.remove("hidden");
-
     // Adding a "Restart Game" button
     document.querySelector("#restart_game_btn").addEventListener("click", restartGame);
-
+    document.querySelector("#quit_game_over").addEventListener("click", exit);
     // changing the game running status
     gameHasEnded = true;
   }
@@ -458,8 +384,18 @@ function gameOver() {
 
 // level complete function
 function levelComplete() {
-  document.querySelector("#level_complete").classList.remove("hidden");
-  // here I have to remove all the falling classes from containers, remove eventListeners, add "next level button", and change the gameHasEnded to true
+  document.querySelector("#game_screen").classList.add("hidden");
+  console.log("level complete function");
+  if (gameHasEnded == false) {
+    console.log(gameHasEnded);
+    document.querySelector("#level_complete").classList.remove("hidden");
+    clear();
+    document.querySelector("#play_again_btn").addEventListener("click", restartGame);
+    document.querySelector("#quit_level_complete").addEventListener("click", exit);
+    // changing the game running status
+    gameHasEnded = true;
+  }
+  console.log(gameHasEnded);
 }
 
 
@@ -494,6 +430,11 @@ function pauseGame() {
     document.querySelector("#firedrop4_container").classList.add("pause");
     document.querySelector("#firedrop5_container").classList.add("pause");
     document.querySelector("#firedrop6_container").classList.add("pause");
+    document.querySelector("#firedrop7_container").classList.add("pause");
+    document.querySelector("#firedrop8_container").classList.add("pause");
+    document.querySelector("#firedrop9_container").classList.add("pause");
+    document.querySelector("#firedrop10_container").classList.add("pause");
+    document.querySelector("#firedrop11_container").classList.add("pause");
 
     // pause the time runner
     document.querySelector("#time_background").classList.add("pause");
@@ -504,11 +445,16 @@ function pauseGame() {
     document.querySelector("#waterdrop3_container").removeEventListener("click", waterClick1);
     document.querySelector("#heart_container").removeEventListener("click", heartClick);
     document.querySelector("#firedrop1_container").removeEventListener("click", fireClick1);
-    document.querySelector("#firedrop2_container").removeEventListener("click", fireClick2);
-    document.querySelector("#firedrop3_container").removeEventListener("click", fireClick3);
-    document.querySelector("#firedrop4_container").removeEventListener("click", fireClick4);
-    document.querySelector("#firedrop5_container").removeEventListener("click", fireClick5);
-    document.querySelector("#firedrop6_container").removeEventListener("click", fireClick6);
+    document.querySelector("#firedrop2_container").removeEventListener("click", fireClick1);
+    document.querySelector("#firedrop3_container").removeEventListener("click", fireClick1);
+    document.querySelector("#firedrop4_container").removeEventListener("click", fireClick1);
+    document.querySelector("#firedrop5_container").removeEventListener("click", fireClick1);
+    document.querySelector("#firedrop6_container").removeEventListener("click", fireClick1);
+    document.querySelector("#firedrop7_container").removeEventListener("click", fireClick1);
+    document.querySelector("#firedrop8_container").removeEventListener("click", fireClick1);
+    document.querySelector("#firedrop9_container").removeEventListener("click", fireClick1);
+    document.querySelector("#firedrop10_container").removeEventListener("click", fireClick1);
+    document.querySelector("#firedrop11_container").removeEventListener("click", fireClick1);
     gameIsPaused = true;
 
     document.querySelector("#play").addEventListener("click", unPauseGame);
@@ -530,6 +476,11 @@ function unPauseGame() {
     document.querySelector("#firedrop4_container").classList.remove("pause");
     document.querySelector("#firedrop5_container").classList.remove("pause");
     document.querySelector("#firedrop6_container").classList.remove("pause");
+    document.querySelector("#firedrop7_container").classList.remove("pause");
+    document.querySelector("#firedrop8_container").classList.remove("pause");
+    document.querySelector("#firedrop9_container").classList.remove("pause");
+    document.querySelector("#firedrop10_container").classList.remove("pause");
+    document.querySelector("#firedrop11_container").classList.remove("pause");
 
     // unpause the time runner
     document.querySelector("#time_background").classList.remove("pause");
@@ -540,11 +491,16 @@ function unPauseGame() {
     document.querySelector("#waterdrop3_container").addEventListener("click", waterClick1);
     document.querySelector("#heart_container").addEventListener("click", heartClick);
     document.querySelector("#firedrop1_container").addEventListener("click", fireClick1);
-    document.querySelector("#firedrop2_container").addEventListener("click", fireClick2);
-    document.querySelector("#firedrop3_container").addEventListener("click", fireClick3);
-    document.querySelector("#firedrop4_container").addEventListener("click", fireClick4);
-    document.querySelector("#firedrop5_container").addEventListener("click", fireClick5);
-    document.querySelector("#firedrop6_container").addEventListener("click", fireClick6);
+    document.querySelector("#firedrop2_container").addEventListener("click", fireClick1);
+    document.querySelector("#firedrop3_container").addEventListener("click", fireClick1);
+    document.querySelector("#firedrop4_container").addEventListener("click", fireClick1);
+    document.querySelector("#firedrop5_container").addEventListener("click", fireClick1);
+    document.querySelector("#firedrop6_container").addEventListener("click", fireClick1);
+    document.querySelector("#firedrop7_container").addEventListener("click", fireClick1);
+    document.querySelector("#firedrop8_container").addEventListener("click", fireClick1);
+    document.querySelector("#firedrop9_container").addEventListener("click", fireClick1);
+    document.querySelector("#firedrop10_container").addEventListener("click", fireClick1);
+    document.querySelector("#firedrop11_container").addEventListener("click", fireClick1);
     gameIsPaused = false;
 
     // Start counter again
@@ -567,19 +523,7 @@ function restartGame() {
   points = 0;
   timeLeft = 60;
 
-  // remove all paused classes (animations) ???
-  // document.querySelector("#waterdrop1_container").classList.remove("pause");
-  // document.querySelector("#waterdrop2_container").classList.remove("pause");
-  // document.querySelector("#waterdrop3_container").classList.remove("pause");
-  // document.querySelector("#heart_container").classList.remove("pause");
-  // document.querySelector("#firedrop1_container").classList.remove("pause");
-  // document.querySelector("#firedrop2_container").classList.remove("pause");
-  // document.querySelector("#firedrop3_container").classList.remove("pause");
-  // document.querySelector("#firedrop4_container").classList.remove("pause");
-  // document.querySelector("#firedrop5_container").classList.remove("pause");
-  // document.querySelector("#firedrop6_container").classList.remove("pause");
-
-  // Reset game run status to "running"
+  // Reset game run status to not "running"
   gameHasEnded = false;
 
   // refilling the UI hearts (lives)
@@ -608,117 +552,16 @@ function exit() {
 // function that restarts the game without going back to the welcome screen
 function restartOnButton() {
   console.log("restart on button function");
-  gameOver();
-  document.querySelector("#game_over").classList.add("hidden");
-  document.querySelector("#restart_game_btn").removeEventListener("click", restartGame);
 
-  // document.querySelector("#waterdrop1_container").classList.add("hidden");
-  // document.querySelector("#waterdrop2_container").classList.add("hidden");
-  // document.querySelector("#waterdrop3_container").classList.add("hidden");
-  // document.querySelector("#heart_container").classList.add("hidden");
-  // document.querySelector("#firedrop1_container").classList.add("hidden");
-  // document.querySelector("#firedrop2_container").classList.add("hidden");
-  // document.querySelector("#firedrop3_container").classList.add("hidden");
-  // document.querySelector("#firedrop4_container").classList.add("hidden");
-  // document.querySelector("#firedrop5_container").classList.add("hidden");
-  // document.querySelector("#firedrop6_container").classList.add("hidden");
+  if (gameHasEnded == false) {
+    clear();
+    // changing the game running status
+    gameHasEnded = true;
+  }
+ 
+  setTimeout (restartGame, 500);
 
-
-
-  setTimeout(function() {
-
-    // refilling the UI hearts (lives)
-    document.querySelector("#life1").classList.remove("sprite4");
-    document.querySelector("#life2").classList.remove("sprite4");
-    document.querySelector("#life3").classList.remove("sprite4");
-    document.querySelector("#life1").classList.add("sprite3");
-    document.querySelector("#life2").classList.add("sprite3");
-    document.querySelector("#life3").classList.add("sprite3");
-
-    document.querySelector("#time_background").classList.remove("shrink");
-    document.querySelector("#time_background").classList.add("shrink");
-    document.querySelector("#time_background").addEventListener("animationend", removeShrink);
-    start();
-  }, 1000);
-
-  // setTimeout( function() {
-  //   console.log("function restart");
-
-  //   document.querySelector("#waterdrop1_container").classList.remove("hidden");
-  //   document.querySelector("#waterdrop2_container").classList.remove("hidden");
-  //   document.querySelector("#waterdrop3_container").classList.remove("hidden");
-  //   document.querySelector("#heart_container").classList.remove("hidden");
-  //   document.querySelector("#firedrop1_container").classList.remove("hidden");
-  //   document.querySelector("#firedrop2_container").classList.remove("hidden");
-  //   document.querySelector("#firedrop3_container").classList.remove("hidden");
-  //   document.querySelector("#firedrop4_container").classList.remove("hidden");
-  //   document.querySelector("#firedrop5_container").classList.remove("hidden");
-  //   document.querySelector("#firedrop6_container").classList.remove("hidden");
-
-  //   timeLeft = 60;
-  //   lives = 3;
-  //   points = 0;
-
-  //   document.querySelector("#score_number").textContent=points;
-
-  //   startTimer();
-
-  //   document.querySelector("#time_background").classList.remove("shrink");
-  //   document.querySelector("#time_background").classList.add("shrink");
-  //   document.querySelector("#time_background").addEventListener("animationend", removeShrink)
-  //   ;
-
-  //   document.querySelector("#waterdrop1_container").classList.add("fall_waterdrop_1");
-  //   document.querySelector("#waterdrop1_container").classList.add("pos5");
-  //   document.querySelector("#waterdrop1_container").addEventListener("click", waterClick1);
-  //   document.querySelector("#waterdrop1_container").addEventListener("animationiteration", newPos);
-    
-  //   document.querySelector("#waterdrop2_container").classList.add("fall_waterdrop_2");
-  //   document.querySelector("#waterdrop2_container").classList.add("pos6");
-  //   document.querySelector("#waterdrop2_container").addEventListener("click", waterClick1);  
-  //   document.querySelector("#waterdrop2_container").addEventListener("animationiteration", newPos);
-
-  //   document.querySelector("#waterdrop3_container").classList.add("fall_waterdrop_1");
-  //   document.querySelector("#waterdrop3_container").classList.add("pos4");
-  //   document.querySelector("#waterdrop3_container").addEventListener("click", waterClick1);  
-  //   document.querySelector("#waterdrop3_container").addEventListener("animationiteration", newPos);
-
-  //   document.querySelector("#heart_container").classList.add("hidden");
-
-  //   document.querySelector("#firedrop1_container").classList.add("pos3");
-  //   document.querySelector("#firedrop1_container").classList.add("fall_firedrop_1");
-  //   document.querySelector("#firedrop1_container").addEventListener("click", fireClick1);
-
-
-  //   document.querySelector("#firedrop2_container").classList.add("pos4");
-  //   document.querySelector("#firedrop2_container").classList.add("fall_firedrop_2");
-  //   document.querySelector("#firedrop2_container").addEventListener("click", fireClick2);
-
-  //   document.querySelector("#firedrop3_container").classList.add("pos26");
-  //   document.querySelector("#firedrop3_container").classList.add("fall_firedrop_3");
-  //   document.querySelector("#firedrop3_container").addEventListener("click", fireClick3);
-
-  //   document.querySelector("#firedrop4_container").classList.add("pos27");
-  //   document.querySelector("#firedrop4_container").classList.add("fall_firedrop_4");
-  //   document.querySelector("#firedrop4_container").addEventListener("click", fireClick4);
-
-  //   document.querySelector("#firedrop5_container").classList.add("pos28");
-  //   document.querySelector("#firedrop5_container").classList.add("fall_firedrop_5");
-  //   document.querySelector("#firedrop5_container").addEventListener("click", fireClick5);
-
-  //   document.querySelector("#firedrop6_container").classList.add("pos29");
-  //   document.querySelector("#firedrop6_container").classList.add("fall_firedrop_6");
-  //   document.querySelector("#firedrop6_container").addEventListener("click", fireClick6);
-
-  //   // Adding click event to new pause button
-  //   document.querySelector("#settings").addEventListener("click", openSettings);
-  //   document.querySelector("#pause").addEventListener("click", pauseGame);
-
-  //   // Adding click event to exit button
-  //   document.querySelector("#exit").addEventListener("click", exit);
-
-  //   // Adding click event to restart button
-  //   document.querySelector("#restart").addEventListener("click", restartOnButton);
-  // }, 1000);
-  
+  start();
+  //console.log(timeLeft + "seconds left");
 }
+

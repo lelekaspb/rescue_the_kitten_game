@@ -120,12 +120,12 @@
 
 
 .fall_waterdrop_1 {
-  animation: fall_kf 3s infinite linear backwards,
-             fade_out_kf 0.3s 2.8s 1 linear forwards;
+  animation: fall_kf 4s infinite linear backwards,
+             fade_out_kf 0.3s 3.8s 1 linear forwards;
 }
 .fall_waterdrop_2 {
-  animation: fall_kf 3s 1s infinite linear both,
-             fade_out_kf 0.3s 3.8s 1 linear forwards;
+  animation: fall_kf 4s 1s infinite linear both,
+             fade_out_kf 0.3s 4.8s 1 linear forwards;
 }
 .fall_heart {
   animation: fall_kf 2s 2s infinite linear both,
@@ -135,19 +135,19 @@
   animation: fall_kf 2s 1 linear forwards;
 }
 .fall_firedrop_2 {
-  animation: fall_kf 2s 1.5s 1 linear both;
+  animation: fall_kf 2s 4s 1 linear both;
 }
 .fall_firedrop_3 {
-  animation: fall_kf 2.5s 5s 1 linear both;
+  animation: fall_kf 2.5s 8s 1 linear both;
 }
 .fall_firedrop_4 {
-  animation: fall_kf 2s 6s 1 linear both;
+  animation: fall_kf 2s 12s 1 linear both;
 }
 .fall_firedrop_5 {
-  animation: fall_kf 2s 9s 1 linear both;
+  animation: fall_kf 2s 16s 1 linear both;
 }
 .fall_firedrop_6 {
-  animation: fall_kf 2s 11s 1 linear both;
+  animation: fall_kf 2s 20s 1 linear both;
 }
 
 .disappear {
@@ -158,8 +158,8 @@
 }
 
 .flash {
-  animation: fade_in_kf 2s 1 linear forwards,
-             fade_out_kf 2s 1 linear forwards;
+  animation: fade_in_kf 1s 1 linear forwards,
+             fade_out_kf 1s 1 linear forwards;
 }
 
 
@@ -231,7 +231,44 @@
   }
 }
 
+/* backward arrow on the instructions screen animation */
+.backward {
+  animation-name: backward_kf;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+}
+@keyframes backward_kf {
+  from {
+    transform: translateX(1vw);
+  }
+  to {
+    transform: translateX(0vw);
+  }
+}
 
+
+
+/*when click on a firedrop*/
+.shake {
+  animation: shake 1s;
+}
+
+@keyframes shake {
+0% { transform: scale(1.3) rotate(0deg); }
+10% { transform: scale(1.3) rotate(-1deg); }
+20% { transform: scale(1.3) rotate(1deg); }
+30% { transform: scale(1.3) rotate(0deg); }
+40% { transform: scale(1.3) rotate(1deg); }
+50% { transform: scale(1.3) rotate(-1deg); }
+60% { transform: scale(1.3) rotate(0deg); }
+70% { transform: scale(1.3) rotate(-1deg); }
+80% { transform: scale(1.1) rotate(1deg); }
+90% { transform: scale(1) rotate(0deg); }
+100% { transform: scale(1) rotate(-1deg); }
+}
 
 
 
