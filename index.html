@@ -11,10 +11,9 @@
   <header>
     <nav>
       <ul>
-        <li><a href="#">Game</a></li>
-        <li><a href="#">Instructions</a></li>
-        <li><a href="#">Developer</a></li>
-        <li><a href="#">Contact</a></li>
+        <li ><a href="index.html" class="active">Home</a></li>
+        <li><a href="instructions.html">Instructions</a></li>
+        <li><a href="assets.html">Game assets</a></li>
       </ul>
     </nav>
   </header>
@@ -100,6 +99,7 @@
         </div>
         <div id="under_foreground"></div>
         <div id="game_foreground"> </div>
+        <audio id="bgMusic" src="assets/background.mp3"></audio>
         
         <div id="game_ui">
           <div id="score_board">
@@ -182,16 +182,25 @@
     </section>
 
     <aside>
-      <p>The game was made as a study project for the Basic Animation Theme, Multimedia Design Program at KEA, 2020.</p>
-      <!-- <p>Developer: Olga Baeva, student at KEA, Multimedia Design Program.</p> -->
+      <h3>How to play</h3>
+      <p>Gather 20 waterdrops until time runs out in order to extinguish the fire.</p>
+      <p>Avoid clicking on firedrops as they will hurt you and take away one life every time. <em>Remember: the firedrops are also dangerous after reaching the floor.</em></p>
+      <p>You have three lives to begin with.</p>
+      <p>If you lose a life, you can get another one by clicking on a heart falling down.</p>
+      <p><span>Note: </span>You can access pause, restart, exit, and mute buttons by clicking on the Settings icon.</p>
+      <footer id="aside_footer ">
+        <p id="aside_p">The game was made as a study project for the Basic Animation Theme, Multimedia Design Program at KEA, 2020. <br>
+        Student: Olga Baeva. </p>
+        <p id="aside_p1">Sound from <a href="https://www.zapsplat.com/" target="blank">Zapsplat.com</a></p>
+      </footer>
     </aside>
   </main>
 
-  <footer>
-    <ul>
-      <li><a href="#">Facebook</a></li>
-      <li><a href="#">LinkedIn</a></li>
-    </ul>
+  <footer id="main_footer">
+    <!-- <ul> -->
+      <!-- <li><a href="#">Facebook</a></li> -->
+      <a href="https://www.linkedin.com/in/olga-baeva-4b738b1b4/" target="blank">LinkedIn</a>
+    <!-- </ul> -->
   </footer>
   
   <script src="js/script.js"></script>

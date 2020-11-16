@@ -3,11 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 body {
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   /* width: calc(100vh / 9 * 16);
   height: 100vh; */
   margin: 0;
-  background-color: #d4c5ed;
+  /* background-color: #d4c5ed; */
+  background-color: white;
   font-family: 'Raleway', Helvetica, sans-serif;
   color: #391e62;
 }
@@ -26,6 +27,18 @@ a:hover {
   color: #6736b0;
 }
 
+.active {
+  color: #a31f00;
+  font-weight: bold;
+}
+
+#main_footer {
+  margin-top: 2vw;
+  margin-left: 2vw;
+  margin-bottom: 2vw;
+  font-size: 1vw;
+}
+
 main {
   display: grid;
   grid-template-areas: "game info";
@@ -42,8 +55,26 @@ aside {
   grid-area: info;
   margin-top: auto;
   margin-bottom: auto;
-  font-size: 2vw;
+  /* font-size: 2vw; */
 }
+
+h3 {
+  margin: 1vw;
+  margin-top: 0;
+}
+aside span {
+  font-weight: bold;
+}
+
+/* #aside_footer {
+  font-size: 1vw;
+  margin: 0;
+} */
+
+ #aside_p,
+ #aside_p1 {
+  font-size: 0.8vw;
+} 
 
 
 #game {
@@ -799,3 +830,26 @@ p {
   height: auto;
 }
 
+
+
+@media only screen and (max-width: 899px) {
+  main {
+    display: grid;
+    grid-template-areas: "game"
+                        "info";
+    row-gap: 3vw;
+    /*grid-template-columns: 80% 1fr;*/
+    margin-left: 2vw;
+  }
+  
+  #game_screen {
+    grid-area: game;
+    height: 43vw;
+  }
+  aside {
+    grid-area: info;
+    margin-top: auto;
+    margin-bottom: auto;
+    /* font-size: 2vw; */
+  }
+}

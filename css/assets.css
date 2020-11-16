@@ -1,6 +1,4 @@
-body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 section {
   margin-top: 10vw;
@@ -28,4 +26,40 @@ figure {
 #timebar_fg {
   width: 55vw;
   height: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 5vw;
+}
+
+
+body {
+  font-size: 1.2vw;
+  margin: 0;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  /* background-color: #d4c5ed; */
+  background-color: white;
+  font-family: 'Raleway', Helvetica, sans-serif;
+  color: #391e62;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #391e62;
+}
+a:hover {
+  color: #6736b0;
+}
+
+.active {
+  color: #a31f00;
+  font-weight: bold;
 }

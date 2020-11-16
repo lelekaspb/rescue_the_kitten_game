@@ -3,10 +3,15 @@
 window.addEventListener("load", welcome);
 let points = 0;
 let lives = 3;
-let timeLeft = 60;
+let durationOfGame = 60;
+let timeLeft;
+// Variable to hold the setTimeOut in function startTimer, 
+// so that it can be cleared at end of game using clearTimeout(timeTracker)
+let timeTracker;
 let gameIsPaused = false;
 let gameHasEnded = false;
 let settingsAreOpen = false;
+let bgMusic = document.querySelector("#bgMusic");
 document.querySelector("#score_number").textContent=points;
 
 function welcome() {
@@ -32,19 +37,15 @@ function start() {
   document.querySelector("#instructions").classList.add("hidden"); 
   document.querySelector("#game_screen").classList.remove("hidden");
   clear();
-  console.log("classes cleared");
   gameHasEnded = false;
-  startTimer();
-  console.log("started startTimer");
-  timeLeft = 60;
+  timeLeft = durationOfGame;
   lives = 3;
   points = 0;
-  console.log("reset variables");
   document.querySelector("#score_number").textContent=points;
-  //console.log(timeLeft+" seconds left after starting start");
+  startTimer();
   
-   setTimeout( ()=> {
-    
+    setTimeout( ()=> {
+    playBackgroundMusic();
     //console.log(timeLeft+" seconds left inside setTimeout");
     document.querySelector("#time_background").classList.remove("shrink");
     document.querySelector("#time_background").classList.add("shrink");
@@ -57,7 +58,8 @@ function start() {
     document.querySelector("#exit").addEventListener("click", exit);  
     // Adding click event to restart button
     document.querySelector("#restart").addEventListener("click", restartOnButton);
-   }, 500);
+    document.querySelector("#no_sound").addEventListener("click", muteSound);
+    }, 500);
   //console.log(timeLeft+" seconds left after setting setTimeout");
 }
 
@@ -112,7 +114,7 @@ function startAnimations() {
   document.querySelector("#firedrop5_sprite").classList.add("fire_animation");
   document.querySelector("#firedrop6_sprite").classList.add("fire_animation_2");
 
-  console.log(timeLeft + "seconds left by the end of startAnimations function");
+  //console.log(timeLeft + "seconds left by the end of startAnimations function");
 
   setTimeout ( () => {
     
@@ -262,6 +264,19 @@ function restart_heart() {
 }
 
 
+
+
+function playBackgroundMusic() {
+  console.log("function playBackgroundMusic()");
+  bgMusic.currentTime = 0;
+  bgMusic.play();
+}
+
+function pauseBackgroundMusic() {
+  console.log("function pauseBackgroundMusic");
+  bgMusic.pause();
+}
+
  // remove the shrink class from the time runner
  function removeShrink() {
   document.querySelector("#time_background").classList.remove("shrink");
@@ -296,19 +311,35 @@ function newPosForHeart() {
 // timing
 function startTimer() {
   if (gameIsPaused == false) {
-    if (timeLeft == 0 || lives < 1) {
-      gameOver();
-    } else {
-      setTimeout(showTime, 1000);
-    }
-  } 
+
+     //if (gameHasEnded == false) {
+      //if game is running:
+      //checking is player has any lives left
+      if (timeLeft == 0) {
+        //if lives at zero, call the game over function
+        gameOver();
+      } else {
+        //if player has lives left, start a timeout of 1 second
+        timeTracker = setTimeout(showTime, 1000);
+      }
+    // } else {
+    //   restartGame();
+    // }
+
+   } 
 }
 
+
 function showTime() {
+  console.log("function showtime");
+  //if there is still time left
   if (timeLeft > 0) {
     timeLeft--;
+    console.log("time left:" + timeLeft);
+    //then, call the startTimer function again (so that it can run one time more)
     startTimer();
   } else {
+    //or if no time left - call the gameOver function
     gameOver();
   }
 }
@@ -367,9 +398,12 @@ function clear() {
 
 // game over function
 function gameOver() {
+  //timeLeft = 0;
   document.querySelector("#game_screen").classList.add("hidden");
   console.log("game over function");
   console.log(gameOver.caller);
+  clearTimeout(timeTracker);
+  stopSounds();
   if (gameHasEnded == false) {
     clear();
     document.querySelector("#game_over").classList.remove("hidden");
@@ -384,10 +418,13 @@ function gameOver() {
 
 // level complete function
 function levelComplete() {
+  timeLeft = 0;
   document.querySelector("#game_screen").classList.add("hidden");
   console.log("level complete function");
+  clearTimeout(timeTracker);
+  stopSounds();
   if (gameHasEnded == false) {
-    console.log(gameHasEnded);
+    //console.log(gameHasEnded);
     document.querySelector("#level_complete").classList.remove("hidden");
     clear();
     document.querySelector("#play_again_btn").addEventListener("click", restartGame);
@@ -395,7 +432,7 @@ function levelComplete() {
     // changing the game running status
     gameHasEnded = true;
   }
-  console.log(gameHasEnded);
+  //console.log(gameHasEnded);
 }
 
 
@@ -412,7 +449,32 @@ function openSettings() {
   }
 }
 
+// stop sounds function
+function stopSounds() {
 
+  bgMusic.pause();
+  bgMusic.currentTime = 0;
+  //bgMusic.removeEventListener("ended", playBackgroundMusic);
+  // gameOverSound.pause();
+  // gameOverSound.removeEventListener("ended", playGameOverRiff);
+  // levelCompleteSound.pause();
+  // levelCompleteSound.removeEventListener("ended", playLevelCompleteSound);
+}
+
+//mute background sound function
+function muteSound() {
+  console.log("function muteSound()");
+  if(bgMusic.muted == false) {
+      bgMusic.muted = true;
+      // gameOverSound.muted = true;
+      // levelCompleteSound = true;
+  } 
+  document.querySelector("#sound").addEventListener("click", unMuteSound);
+}
+
+function unMuteSound() {
+  bgMusic.muted = false;
+}
 
 // pause function
 function pauseGame() {
@@ -438,6 +500,9 @@ function pauseGame() {
 
     // pause the time runner
     document.querySelector("#time_background").classList.add("pause");
+
+    //pause the background music
+    bgMusic.pause();
 
     // remove all eventListeners
     document.querySelector("#waterdrop1_container").removeEventListener("click", waterClick1);
@@ -485,6 +550,9 @@ function unPauseGame() {
     // unpause the time runner
     document.querySelector("#time_background").classList.remove("pause");
 
+    //play the background music
+    bgMusic.play();
+
     // add all eventListeners
     document.querySelector("#waterdrop1_container").addEventListener("click", waterClick1);
     document.querySelector("#waterdrop2_container").addEventListener("click", waterClick1);
@@ -512,16 +580,20 @@ function unPauseGame() {
 // restart game function
 function restartGame() {
   console.log("restart game function");
+  
   // hiding unused screens (title, instructions, gameover, levelcomplete)
   document.querySelector("#title_screen").classList.add("hidden");
   document.querySelector("#instructions").classList.add("hidden"); // actually this one shows up before the game background screen - have to fix it later
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
 
+  stopSounds();
+  playBackgroundMusic();
+
   // reset variables
   lives = 3;
   points = 0;
-  timeLeft = 60;
+  timeLeft = durationOfGame;
 
   // Reset game run status to not "running"
   gameHasEnded = false;
@@ -533,9 +605,6 @@ function restartGame() {
   document.querySelector("#life1").classList.add("sprite3");
   document.querySelector("#life2").classList.add("sprite3");
   document.querySelector("#life3").classList.add("sprite3");
-
-  console.log(points);
-
 
   // Calling the start function
   start();
@@ -552,16 +621,33 @@ function exit() {
 // function that restarts the game without going back to the welcome screen
 function restartOnButton() {
   console.log("restart on button function");
+  // hiding unused screens (title, instructions, gameover, levelcomplete)
+  document.querySelector("#title_screen").classList.add("hidden");
+  document.querySelector("#instructions").classList.add("hidden"); // actually this one shows up before the game background screen - have to fix it later
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+  clear();
+  clearTimeout(timeTracker);
+  stopSounds();
+  playBackgroundMusic();
 
-  if (gameHasEnded == false) {
-    clear();
-    // changing the game running status
-    gameHasEnded = true;
-  }
- 
-  setTimeout (restartGame, 500);
+  // reset variables
+  lives = 3;
+  points = 0;
+  timeLeft = durationOfGame;
 
+  // refilling the UI hearts (lives)
+  document.querySelector("#life1").classList.remove("sprite4");
+  document.querySelector("#life2").classList.remove("sprite4");
+  document.querySelector("#life3").classList.remove("sprite4");
+  document.querySelector("#life1").classList.add("sprite3");
+  document.querySelector("#life2").classList.add("sprite3");
+  document.querySelector("#life3").classList.add("sprite3");
+
+  // Reset game run status to not "running"
+  gameHasEnded = false;
+  
   start();
-  //console.log(timeLeft + "seconds left");
+  
 }
 
