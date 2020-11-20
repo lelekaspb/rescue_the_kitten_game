@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="icon" href="assets/images/firedrop.svg">
   <title>Rescue The Kitten</title>
 </head>
 <body>
@@ -19,15 +20,35 @@
   </header>
 
   <main>
+
+  
+
     <section id="game_screen">
       <div id="game">
         <div id="game_background"> </div>
-        <div id="kittens_mouth" class="pos1"></div>
-        <div id="mouth_fill_container" >
+        <!-- <div id="kittens_mouth" class="pos1"></div> -->
+        <!-- <div id="mouth_fill_container" >
           <div id="mouth_fill" class="mouth_open"></div>
-        </div>
+        </div> -->
         <div id="fire" class="pos2 fire_animation"></div>
         <div id="game_sprites"> 
+
+
+        <!-- plus waterdrop -->
+        <div id="plus_waterdrop_container">
+          <div id="plus_waterdrop"></div>
+        </div>
+          
+        <div id="waterdrop2_container">
+          <div id="waterdrop2_sprite" class="sprite2"></div>
+        </div>
+        <div id="waterdrop3_container">
+          <div id="waterdrop3_sprite" class="sprite2"></div>
+        </div>
+          
+        <div id="heart_container">
+          <div id="heart_sprite" class="sprite5"></div>
+        </div>
 
           <div id="firedrop1_container">
             <div id="firedrop1_sprite" class="sprite1"></div>
@@ -75,21 +96,7 @@
             <div id="waterdrop1_sprite" class="sprite2"></div>
           </div>
 
-          <!-- plus waterdrop -->
-          <div id="plus_waterdrop_container">
-            <div id="plus_waterdrop"></div>
-          </div>
 
-          <div id="waterdrop2_container">
-            <div id="waterdrop2_sprite" class="sprite2"></div>
-          </div>
-          <div id="waterdrop3_container">
-            <div id="waterdrop3_sprite" class="sprite2"></div>
-          </div>
-
-          <div id="heart_container">
-            <div id="heart_sprite" class="sprite5"></div>
-          </div>
 
           <!-- plus heart -->
           <div id="plus_heart_container">
@@ -99,7 +106,7 @@
         </div>
         <div id="under_foreground"></div>
         <div id="game_foreground"> </div>
-        <audio id="bgMusic" src="assets/background.mp3"></audio>
+        <audio id="bgMusic" src="assets/sounds/background.mp3"></audio>
         
         <div id="game_ui">
           <div id="score_board">
@@ -120,53 +127,36 @@
           <div id="settings"></div>
           <div id="settings_open" class="hidden">
             <div id="settings_clicked" class="pos13"></div>
-            <div id="pause" class="pos14"></div>
-            <div id="play" class="pos15"></div>
-            <div id="restart" class="pos16"></div>
-            <div id="exit" class="pos17"></div>
-            <div id="sound" class="pos18"></div>
-            <div id="no_sound" class="pos19"></div>
+            <div id="pause" class="pos14 btn"></div>
+            <div id="play" class="pos15 btn"></div>
+            <div id="restart" class="pos16 btn"></div>
+            <div id="exit" class="pos17 btn"></div>
+            <div id="sound" class="pos18 btn"></div>
+            <div id="no_sound" class="pos19 btn"></div>
           </div>
+          <audio id="click_sound" src="assets/sounds/click_sound.mp3"></audio>
         </div>
+
+        <audio id="waterSound1" src="assets/sounds/water2.mp3"></audio>
+        <audio id="fireSound1" src="assets/sounds/fire1.mp3"></audio>
+        <audio id="heartSound" src="assets/sounds/heart.mp3"></audio>
+
       </div>
 
     </section>
 
-    <section id="title_screen" class="hidden">
-      <div id="logo">
-        <img src="images/logo.svg" alt="logo">
-      </div>
-      <p>oh no!</p>
-      <p>Fire broke out in the library.</p>
-      <p>A poor little kitten is too scared to move.</p>
-      <div class="fire_title fire_animation_2"></div>
-      <div id="title_screen_btn"></div>
-      <div id="title_screen_i"></div>
-      <div id="kitten_sad"></div>
-    </section>
-    
-    <section id="instructions" class="hidden">
-      <article>
-        <p>Gather 20 waterdrops until time runs out in order to extinguish the fire.</p>
-        <p>Avoid clicking on firedrops as they will hurt you and take away one life every time.</p>
-        <p>You have three lives to begin with.</p>
-        <p>If you lose a life, you can get another one by clicking on a heart falling down.</p>
-      </article>
-      <footer id="instructions_footer">
-        <div id="instructions_button_back" class="pos22 backward"></div>
-        <p>Good luck!!!</p>
-        <div id="instructions_button" class="pos20 forward"></div>
-      </footer>
-    </section>
+
 
     <section id="game_over" class="hidden">
       <h1>oh no!</h1>
       <article>
         <p>the kitten is <br> still in danger</p>
-        <div id="fire_game_over" class="fire_animation_2"></div>
+        <!-- <div id="fire_game_over" class="fire_animation_2"></div> -->
+        <div id="kitten_game_over"></div>
       </article>
-      <div id="quit_game_over"></div>
-      <div id="restart_game_btn"></div>
+      <div id="quit_game_over" class="btn"></div>
+      <div id="restart_game_btn" class="btn"></div>
+      <audio id="gameOverSound" src="assets/sounds/oh_no.mp3"></audio>
     </section>
 
     <section id="level_complete" class="hidden">
@@ -174,21 +164,50 @@
       <article>
         <p>You have saved <br> the kitten.</p>
         <figure>
-          <img src="images/kitten_happy.svg" alt="illustration of a happy kitten">
+          <img src="assets/images/kitten_happy.svg" alt="illustration of a happy kitten">
         </figure>
       </article>
-      <div id="play_again_btn"></div>
-      <div id="quit_level_complete"></div>
+      <div id="play_again_btn" class="btn"></div>
+      <div id="quit_level_complete" class="btn"></div>
+      <audio id="levelCompleteSound" src="assets/sounds/yay.mp3"></audio>
     </section>
+
+    <section id="title_screen" class="hidden">
+      <div id="logo">
+        <img src="assets/images/logo.svg" alt="logo">
+      </div>
+      <p>oh no!</p>
+      <p>Fire broke out in the library.</p>
+      <p>A poor little kitten is too scared to move.</p>
+      <div class="fire_title fire_animation_2"></div>
+      <div id="title_screen_btn" class="btn"></div>
+      <div id="title_screen_i" class="btn"></div>
+      <div id="kitten_sad"></div>
+    </section>
+    
+    <section id="instructions" class="hidden">
+      <article>
+        <p>Gather 20 waterdrops before time runs out in order to extinguish the fire.</p>
+        <p>Avoid clicking on firedrops as they will hurt you and take away one life every time.</p>
+        <p>You have three lives to begin with.</p>
+        <p>If you lose a life, you can get another one by clicking on a heart falling down.</p>
+      </article>
+      <footer id="instructions_footer">
+        <div id="instructions_button_back" class="pos22 backward btn"></div>
+        <p>Good luck!!!</p>
+        <div id="instructions_button" class="pos20 forward btn"></div>
+      </footer>
+    </section>
+
 
     <aside>
       <h3>How to play</h3>
-      <p>Gather 20 waterdrops until time runs out in order to extinguish the fire.</p>
+      <p>Gather 20 waterdrops before time runs out in order to extinguish the fire.</p>
       <p>Avoid clicking on firedrops as they will hurt you and take away one life every time. <em>Remember: the firedrops are also dangerous after reaching the floor.</em></p>
       <p>You have three lives to begin with.</p>
       <p>If you lose a life, you can get another one by clicking on a heart falling down.</p>
       <p><span>Note: </span>You can access pause, restart, exit, and mute buttons by clicking on the Settings icon.</p>
-      <footer id="aside_footer ">
+      <footer id="aside_footer">
         <p id="aside_p">The game was made as a study project for the Basic Animation Theme, Multimedia Design Program at KEA, 2020. <br>
         Student: Olga Baeva. </p>
         <p id="aside_p1">Sound from <a href="https://www.zapsplat.com/" target="blank">Zapsplat.com</a></p>

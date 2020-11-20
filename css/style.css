@@ -82,7 +82,7 @@ aside span {
 } 
 
 #game_background {
-  background-image: url('../images/game_background.svg');
+  background-image: url('../assets/images/game_background.svg');
   background-size: 100%;
   width: 80vw;
   height: 43vw;
@@ -92,7 +92,7 @@ aside span {
 }
 
 #kittens_mouth {
-  background-image: url('../images/kitten_mouth.svg');
+  background-image: url('../assets/images/kitten_mouth.svg');
   background-size: 100%;
   position: absolute;
   width: 1vw;
@@ -104,7 +104,7 @@ aside span {
 }
 
 #mouth_fill {
-  background-image: url('../images/mouth_fill.svg');
+  background-image: url('../assets/images/mouth_fill.svg');
   background-size: 100%;
   position: absolute;
   width: 0.85vw;
@@ -117,7 +117,7 @@ aside span {
 
 
 #fire {
-  background-image: url('../images/fire_big.svg');
+  background-image: url('../assets/images/fire_big.svg');
   background-size: 100%;
   position: absolute;
   width: 8.5vw;
@@ -136,7 +136,7 @@ aside span {
 }
 
 .sprite1 {
-  background-image: url('../images/firedrop.svg');
+  background-image: url('../assets/images/firedrop.svg');
   background-size: 100%;
   position: absolute;
   width: 6vw;
@@ -189,7 +189,7 @@ aside span {
 }
 
 .sprite2 {
-  background-image: url('../images/waterdrop_big.svg');
+  background-image: url('../assets/images/waterdrop_big.svg');
   background-size: 100%;
   position: absolute;
   width: 5vw;
@@ -296,7 +296,7 @@ aside span {
 
 
 .sprite5 {
-  background-image: url('../images/heart_big.svg');
+  background-image: url('../assets/images/heart_big.svg');
   background-size: 100%;
   position: absolute;
   width: 5vw;
@@ -308,7 +308,7 @@ aside span {
 }
 
 #game_foreground {
-  background-image: url('../images/foreground.svg');
+  background-image: url('../assets/images/foreground.svg');
   background-size: 100%;
   position: absolute;
   width: 83vw;
@@ -319,7 +319,7 @@ aside span {
 }
 
 #under_foreground {
-  background-image: url('../images/underforeground.svg');
+  background-image: url('../assets/images/underforeground.svg');
   background-size: 100%;
   position: absolute;
   width: 83vw;
@@ -331,7 +331,7 @@ aside span {
 
 
 #score_waterdrop {
-  background-image: url('../images/waterdrop_ui.svg');
+  background-image: url('../assets/images/waterdrop_ui.svg');
   background-size: 100%;
   position: absolute;
   top: 1.5vw;
@@ -349,7 +349,7 @@ aside span {
 }
 
 .sprite3 {
-  background-image: url('../images/heart_ui.svg');
+  background-image: url('../assets/images/heart_ui.svg');
   background-size: 100%;
   position: absolute;
   width: 3.2vw;
@@ -366,7 +366,7 @@ aside span {
 }
 
 .sprite4 {
-  background-image: url('../images/heart_ui_empty.svg');
+  background-image: url('../assets/images/heart_ui_empty.svg');
   background-size: 100%;
   position: absolute;
   width: 3.2vw;
@@ -378,7 +378,7 @@ aside span {
 }
 
 #time_background {
-  background-image: url('../images/timebar_background.svg');
+  background-image: url('../assets/images/timebar_background.svg');
   background-size: 100%;
   position: absolute;
   width: 22.5vw;
@@ -389,7 +389,7 @@ aside span {
 }
 
 #time_foreground {
-  background-image: url('../images/timebar_foreground.svg');
+  background-image: url('../assets/images/timebar_foreground.svg');
   background-size: 100%;
   position: absolute;
   width: 30vw;
@@ -399,7 +399,7 @@ aside span {
 }
 
 #settings {
-  background-image: url('../images/settings.svg');
+  background-image: url('../assets/images/settings.svg');
   background-size: 100%;
   position: absolute;
   width: 3.4vw;
@@ -410,7 +410,7 @@ aside span {
 }
 
 #settings_clicked {  
-  background-image: url('../images/settings_open_bg.svg');
+  background-image: url('../assets/images/settings_open_bg.svg');
   background-size: 100%; 
   position: absolute;
   width: 19vw;
@@ -423,7 +423,7 @@ aside span {
 }
 
 #pause {
-  background-image: url('../images/pause_icon.svg');
+  background-image: url('../assets/images/pause_icon.svg');
   background-size: 100%;
   position: absolute;
   width: 3vw;
@@ -436,7 +436,7 @@ aside span {
 }
 
 #play {
-  background-image: url('../images/play_icon.svg');
+  background-image: url('../assets/images/play_icon.svg');
   background-size: 100%;
   position: absolute;
   width: 3vw;
@@ -449,7 +449,7 @@ aside span {
 }
 
 #restart {
-  background-image: url('../images/restart_icon.svg');
+  background-image: url('../assets/images/restart_icon.svg');
   background-size: 100%;
   position: absolute;
   width: 3vw;
@@ -462,7 +462,7 @@ aside span {
 }
 
 #exit {
-  background-image: url('../images/exit_icon.svg');
+  background-image: url('../assets/images/exit_icon.svg');
   background-size: 100%;
   position: absolute;
   width: 3vw;
@@ -475,7 +475,7 @@ aside span {
 }
 
 #sound {
-  background-image: url('../images/sound.svg');
+  background-image: url('../assets/images/sound.svg');
   background-size: 100%;
   position: absolute;
   width: 3vw;
@@ -488,7 +488,7 @@ aside span {
 }
 
 #no_sound {
-  background-image: url('../images/no_sound.svg');
+  background-image: url('../assets/images/no_sound.svg');
   background-size: 100%;
   position: absolute;
   width: 3vw;
@@ -511,7 +511,7 @@ aside span {
 }
 
 #plus_waterdrop {
-  background-image: url('../images/plus_waterdrop.svg');
+  background-image: url('../assets/images/plus_waterdrop.svg');
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -522,7 +522,7 @@ aside span {
 
 
 #plus_heart {
-  background-image: url('../images/plus_heart.svg');
+  background-image: url('../assets/images/plus_heart.svg');
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -532,7 +532,7 @@ aside span {
 }
 
 #minus_heart {
-  background-image: url('../images/minus_heart.svg');
+  background-image: url('../assets/images/minus_heart.svg');
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -588,7 +588,8 @@ aside span {
 
  
  .hidden {
-  visibility: hidden;
+  visibility: hidden; 
+  /* display: none; */
 }  
 
 main {
@@ -596,7 +597,7 @@ main {
 }
 
 #title_screen {
-  background-image: url('../images/start_screen.svg');
+  background-image: url('../assets/images/start_screen.svg');
   background-size: 100%;
   width: 80vw;
   height: 43vw;
@@ -608,27 +609,27 @@ main {
   font-size: 2.5vw;;
 }
 #title_screen_btn {
-  background-image: url('../images/play_btn.svg');
+  background-image: url('../assets/images/play_btn.svg');
   background-size: 100%;
   cursor: pointer;
   width: 25vw;
   height: 5vw;
   position: absolute;
-  top: 30vw;
+  top: 31vw;
   left: 40vw;
 }
 #title_screen_i {
-  background-image: url('../images/instructions_btn.svg');
+  background-image: url('../assets/images/instructions_btn.svg');
   background-size: 100%;
   cursor: pointer;
   width: 25vw;
   height: 5vw;
   position: absolute;
-  top: 30vw;
+  top: 31vw;
   left: 17vw;
 }
 .fire_title {
-  background-image: url('../images/fire_big.svg');
+  background-image: url('../assets/images/fire_big.svg');
   background-size: 100%;
   background-repeat: no-repeat;
   position: absolute;
@@ -639,7 +640,7 @@ main {
   top: 24vw;
 }
 #kitten_sad {
-  background-image: url('../images/kitten_sad_start_screen.svg');
+  background-image: url('../assets/images/kitten_sad_start_screen.svg');
   background-size: 100%;
   position: absolute;
   width: 17vw;
@@ -650,7 +651,7 @@ main {
 
 #logo img {
   margin: 3vw auto 0;
-  width: 40vw;
+  width: 22vw;
   height: auto;
 }
 
@@ -663,7 +664,7 @@ p {
 
 
 #instructions {
-  background-image: url('../images/start_screen.svg');
+  background-image: url('../assets/images/start_screen.svg');
   background-size: 100%;
   width: 80vw;
   height: 43vw;
@@ -696,7 +697,7 @@ p {
 }
 
 #instructions_button {
-  background-image: url('../images/instructions_arrow_icon.svg');
+  background-image: url('../assets/images/instructions_arrow_icon.svg');
   background-size: 100%;
   width: 6vw;
   height: 6vw;
@@ -708,7 +709,7 @@ p {
 }
 
 #instructions_button_back {
-  background-image: url('../images/instructions_back_icon.svg');
+  background-image: url('../assets/images/instructions_back_icon.svg');
   background-size: 100%;
   width: 6vw;
   height: 6vw;
@@ -721,7 +722,7 @@ p {
 } 
 
 #game_over {
-  background-image: url('../images/start_screen.svg');
+  background-image: url('../assets/images/start_screen.svg');
   background-size: 100%;
   width: 80vw;
   height: 43vw;
@@ -745,26 +746,23 @@ p {
   display: flex;
   justify-content: space-evenly;
 }
-#fire_game_over {
+/* #fire_game_over {
   background-image: url('../images/fire_big.svg');
   background-size: 100%;
   background-repeat: no-repeat;
   width: 17vw;
   height: 19vw;
   filter: blur(0.05vw); 
-} 
-#restart_game_btn{
-  background-image: url('../images/button_try_again.svg');
+}  */
+#kitten_game_over {
+  background-image: url('../assets/images/kitten_sad_head.svg');
   background-size: 100%;
-  cursor: pointer;
+  background-repeat: no-repeat; 
   width: 25vw;
-  height: 5vw;
-  position: absolute;
-  top: 33vw;
-  left: 10vw;
+  height: 19vw;
 }
-#quit_game_over {
-  background-image: url('../images/quit_btn.svg');
+#restart_game_btn{
+  background-image: url('../assets/images/button_try_again.svg');
   background-size: 100%;
   cursor: pointer;
   width: 25vw;
@@ -773,9 +771,19 @@ p {
   top: 33vw;
   left: 45vw;
 }
+#quit_game_over {
+  background-image: url('../assets/images/quit_btn.svg');
+  background-size: 100%;
+  cursor: pointer;
+  width: 25vw;
+  height: 5vw;
+  position: absolute;
+  top: 33vw;
+  left: 10vw;
+}
 
 #level_complete {
-  background-image: url('../images/start_screen.svg');
+  background-image: url('../assets/images/start_screen.svg');
   background-size: 100%;
   width: 80vw;
   height: 43vw;
@@ -787,7 +795,7 @@ p {
   font-size: 2.5vw;
 }
 #play_again_btn {
-  background-image: url('../images/play_again_btn.svg');
+  background-image: url('../assets/images/play_again_btn.svg');
   background-size: 100%;
   cursor: pointer;
   width: 25vw;
@@ -797,7 +805,7 @@ p {
   left: 45vw;
 }
 #quit_level_complete {
-  background-image: url('../images/quit_btn.svg');
+  background-image: url('../assets/images/quit_btn.svg');
   background-size: 100%;
   cursor: pointer;
   width: 25vw;
@@ -848,8 +856,9 @@ p {
   }
   aside {
     grid-area: info;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: 0;
+    /* margin-top: auto;
+    margin-bottom: auto; */
     /* font-size: 2vw; */
   }
 }

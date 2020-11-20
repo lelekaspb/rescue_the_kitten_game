@@ -12,7 +12,25 @@ let gameIsPaused = false;
 let gameHasEnded = false;
 let settingsAreOpen = false;
 let bgMusic = document.querySelector("#bgMusic");
+let clickSound = document.querySelector("#click_sound");
 document.querySelector("#score_number").textContent=points;
+
+//List of sounds
+
+//click waterdrop sound
+let waterSound = document.querySelector("#waterSound1");
+
+//Click firedrop sound
+let fireSound = document.querySelector("#fireSound1");
+
+//click heart sound
+let heartSound = document.querySelector("#heartSound");
+
+//level complete sound
+let levelCompleteSound = document.querySelector("#levelCompleteSound");
+
+//game over sound
+let gameOverSound = document.querySelector("#gameOverSound");
 
 function welcome() {
   document.querySelector("#title_screen").classList.remove("hidden");
@@ -22,22 +40,50 @@ function welcome() {
   document.querySelector("#title_screen_btn").addEventListener("click", start);
 }
 
+function welcome1() {
+  clickSound.play();
+  // document.querySelector("#settings_open").classList.add("hidden");
+ 
+   if (settingsAreOpen == true) {
+      console.log("settings are set to CLOSE");
+      document.querySelector("#settings_open").classList.add("hidden");
+      settingsAreOpen = false;
+     } else {
+      console.log("settings are set to OPEN");
+      document.querySelector("#settings_open").classList.remove("hidden");
+      settingsAreOpen = true;
+     }
+
+  document.querySelector("#title_screen").classList.remove("hidden");
+  document.querySelector("#game_screen").classList.add("hidden");
+  document.querySelector("#instructions").classList.add("hidden");
+  document.querySelector("#title_screen_i").addEventListener("click", instructions);
+  document.querySelector("#title_screen_btn").addEventListener("click", start);
+}
+
+
 function instructions() {
+  clickSound.play();
   document.querySelector("#title_screen").classList.add("hidden");
   document.querySelector("#game_screen").classList.add("hidden");
   document.querySelector("#instructions").classList.remove("hidden");
   document.querySelector("#instructions_button").addEventListener("click", start);
-  document.querySelector("#instructions_button_back").addEventListener("click", welcome);
+  document.querySelector("#instructions_button_back").addEventListener("click", welcome1);
 }
 
 //start game
 function start() {
+  clickSound.play();
   console.log("function start");
   document.querySelector("#title_screen").classList.add("hidden");
   document.querySelector("#instructions").classList.add("hidden"); 
   document.querySelector("#game_screen").classList.remove("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  
   clear();
   gameHasEnded = false;
+  gameIsPaused = false;
   timeLeft = durationOfGame;
   lives = 3;
   points = 0;
@@ -46,7 +92,6 @@ function start() {
   
     setTimeout( ()=> {
     playBackgroundMusic();
-    //console.log(timeLeft+" seconds left inside setTimeout");
     document.querySelector("#time_background").classList.remove("shrink");
     document.querySelector("#time_background").classList.add("shrink");
     document.querySelector("#time_background").addEventListener("animationend", removeShrink);
@@ -60,7 +105,6 @@ function start() {
     document.querySelector("#restart").addEventListener("click", restartOnButton);
     document.querySelector("#no_sound").addEventListener("click", muteSound);
     }, 500);
-  //console.log(timeLeft+" seconds left after setting setTimeout");
 }
 
 
@@ -76,7 +120,7 @@ function startAnimations() {
   document.querySelector("#waterdrop2_container").addEventListener("click", waterClick1);  
   document.querySelector("#waterdrop2_container").addEventListener("animationiteration", newPosForWater);
 
-  document.querySelector("#waterdrop3_container").classList.add("fall_waterdrop_1");
+  document.querySelector("#waterdrop3_container").classList.add("fall_waterdrop_2");
   document.querySelector("#waterdrop3_container").classList.add("pos4");
   document.querySelector("#waterdrop3_container").addEventListener("click", waterClick1);  
   document.querySelector("#waterdrop3_container").addEventListener("animationiteration", newPosForWater);
@@ -113,8 +157,6 @@ function startAnimations() {
   document.querySelector("#firedrop4_sprite").classList.add("fire_animation_2");
   document.querySelector("#firedrop5_sprite").classList.add("fire_animation");
   document.querySelector("#firedrop6_sprite").classList.add("fire_animation_2");
-
-  //console.log(timeLeft + "seconds left by the end of startAnimations function");
 
   setTimeout ( () => {
     
@@ -162,7 +204,15 @@ function startHeart() {
 
 // click functions
 function waterClick1() {
+  console.log("waterdrop click function");
+  console.log(waterClick1.caller);
+  //this.removeEventListener("click", waterClick1);
   points++;
+  //play sound
+  if (points < 20) {
+    waterSound.currentTime = 0;
+    waterSound.play();
+  }
   document.querySelector("#score_number").textContent=points;
   document.querySelector("#plus_waterdrop").parentElement.classList.value="";
   let randPos = Math.floor(Math.random()*9)+1;
@@ -173,8 +223,10 @@ function waterClick1() {
   this.firstElementChild.classList.add("disappear");
   if (points >= 20) {
     levelComplete();
+  } else if (gameIsPaused == false) {
+    this.addEventListener("animationend", restart_waterdrop1);
   }
-  this.addEventListener("animationend", restart_waterdrop1);
+  
 }
 
 
@@ -184,6 +236,10 @@ function heartClick() {
   document.querySelector("#life"+lives).classList.remove("sprite4");
   document.querySelector("#life"+lives).classList.add("sprite3");
   console.log("function heartClick");
+  //this.removeEventListener("click", heartClick);
+  //play sound
+  heartSound.currentTime = 0;
+  heartSound.play();
   document.querySelector("#plus_heart").parentElement.classList.value="";
   let randPos = Math.floor(Math.random()*9)+1;
   document.querySelector("#plus_heart").parentElement.classList.add("pos_popup_"+randPos);
@@ -208,6 +264,13 @@ function heartClick() {
   document.querySelector("#life"+lives).classList.add("sprite4");
   lives--;
   console.log("function fireclick1");
+  //this.removeEventListener("click", fireClick1);
+  //play sound
+  if (lives > 0) {
+    console.log("lives < 3");
+    fireSound.currentTime = 0;
+    fireSound.play();
+  } 
   document.querySelector("#minus_heart").parentElement.classList.value="";
   let randPos = Math.floor(Math.random()*9)+1;
   document.querySelector("#minus_heart").parentElement.classList.add("pos_popup_"+randPos);
@@ -232,35 +295,35 @@ function heartClick() {
 
 // restart animations
 function restart_waterdrop1() {
-  setTimeout ( () => {
+  //setTimeout ( () => {
     console.log("function restart waterdrop1");
-    //console.log(this);
+    
+    //console.log(restart_waterdrop1.caller);
     this.classList.value= "";
     this.offsetHeight;
     this.firstElementChild.classList.remove("disappear");
-    let randPos = Math.floor(Math.random()*9)+1;
-    //console.log(randPos);
-    this.classList.add("position" + randPos);
-    this.classList.add("fall_waterdrop_1");
+    // if (gameIsPaused == false) {   
+      let randPos = Math.floor(Math.random()*9)+1;
+      this.classList.add("position" + randPos);
+      this.classList.add("fall_waterdrop_1");
+  // }
     document.querySelector("#plus_waterdrop").classList.remove("flash");
     console.log(timeLeft + "seconds left");
-  }, 2000);
+  //}, 2000);
 }
 
 
 function restart_heart() {
   console.log("restart heart");
   setTimeout( ()  => {
-    //console.log(this);
     this.classList.value= "";
     this.offsetHeight;
     this.firstElementChild.classList.remove("disappear");
     let randPos = Math.floor(Math.random()*9)+1;
-    //console.log(randPos);
     this.classList.add("position" + randPos);
     this.classList.add("fall_heart");
     document.querySelector("#plus_heart").classList.remove("flash");
-  }, 2000); // sth is wrong with heart reappearing after clicking on a firedrop - it disappears right after appearing on the top of the screeen
+  }, 2000); 
 }
 
 
@@ -292,11 +355,14 @@ function pauseBackgroundMusic() {
 
  // random positions for sprites
  function newPosForWater() {
+  //this.removeEventListener("animationiteration", newPosForWater); //Magnus solution
   this.classList.value = "";
   this.offsetHeight;
-  this.classList.add("fall_waterdrop_1");
-  let randPos = Math.floor(Math.random()*9)+1;
-  this.classList.add("position" + randPos);
+  // if (gameIsPaused == false) {  
+    this.classList.add("fall_waterdrop_1");
+    let randPos = Math.floor(Math.random()*9)+1;
+    this.classList.add("position" + randPos);
+  // }
 } 
 
 function newPosForHeart() {
@@ -311,21 +377,19 @@ function newPosForHeart() {
 // timing
 function startTimer() {
   if (gameIsPaused == false) {
+      if (timeLeft == 0) { 
+        if (points >= 20) {
+          //if no time left and points >= 20, call levelComplete
+          levelComplete();
+        }else {
+          //if no time left and points < 20, call the game over function
+          gameOver();
+        }
 
-     //if (gameHasEnded == false) {
-      //if game is running:
-      //checking is player has any lives left
-      if (timeLeft == 0) {
-        //if lives at zero, call the game over function
-        gameOver();
       } else {
-        //if player has lives left, start a timeout of 1 second
+        //if there is time left, start a timeout of 1 second
         timeTracker = setTimeout(showTime, 1000);
       }
-    // } else {
-    //   restartGame();
-    // }
-
    } 
 }
 
@@ -398,12 +462,13 @@ function clear() {
 
 // game over function
 function gameOver() {
-  //timeLeft = 0;
   document.querySelector("#game_screen").classList.add("hidden");
   console.log("game over function");
   console.log(gameOver.caller);
   clearTimeout(timeTracker);
   stopSounds();
+  gameOver.currentTime = 0;
+  gameOverSound.play();
   if (gameHasEnded == false) {
     clear();
     document.querySelector("#game_over").classList.remove("hidden");
@@ -418,26 +483,28 @@ function gameOver() {
 
 // level complete function
 function levelComplete() {
-  timeLeft = 0;
+  //timeLeft = 0;
   document.querySelector("#game_screen").classList.add("hidden");
   console.log("level complete function");
   clearTimeout(timeTracker);
   stopSounds();
+  levelCompleteSound.currentTime = 0;
+  levelCompleteSound.play();
+  //playLevelComplete();
   if (gameHasEnded == false) {
-    //console.log(gameHasEnded);
     document.querySelector("#level_complete").classList.remove("hidden");
-    clear();
+    //clear();
     document.querySelector("#play_again_btn").addEventListener("click", restartGame);
     document.querySelector("#quit_level_complete").addEventListener("click", exit);
     // changing the game running status
     gameHasEnded = true;
   }
-  //console.log(gameHasEnded);
 }
 
 
 // function that opens detailed settings board
 function openSettings() {
+  clickSound.play();
   if (settingsAreOpen == false) {
     console.log("settings are set to OPEN");
     document.querySelector("#settings_open").classList.remove("hidden");
@@ -451,35 +518,44 @@ function openSettings() {
 
 // stop sounds function
 function stopSounds() {
-
+  waterSound.pause();
+  fireSound.pause();
+  heartSound.pause();
   bgMusic.pause();
   bgMusic.currentTime = 0;
   //bgMusic.removeEventListener("ended", playBackgroundMusic);
-  // gameOverSound.pause();
-  // gameOverSound.removeEventListener("ended", playGameOverRiff);
-  // levelCompleteSound.pause();
-  // levelCompleteSound.removeEventListener("ended", playLevelCompleteSound);
+  gameOverSound.pause ();
+  //gameOverSound.removeEventListener("ended", playGameOverRiff);
+  levelCompleteSound.pause ();
+  //levelCompleteSound.removeEventListener("ended", playLevelCompleteSound);
 }
+
+
+
 
 //mute background sound function
 function muteSound() {
   console.log("function muteSound()");
   if(bgMusic.muted == false) {
+      clickSound.play();
       bgMusic.muted = true;
-      // gameOverSound.muted = true;
-      // levelCompleteSound = true;
+      gameOverSound.muted = true;
+      levelCompleteSound.muted = true;
   } 
   document.querySelector("#sound").addEventListener("click", unMuteSound);
 }
 
 function unMuteSound() {
+  clickSound.play();
   bgMusic.muted = false;
+  gameOverSound.muted = false;
+  levelCompleteSound.muted = false;
 }
 
 // pause function
 function pauseGame() {
   if (gameIsPaused == false) {
-
+    clickSound.play();
     console.log("game is set to PAUSED");
     // pause containers animations (fall)
     document.querySelector("#waterdrop1_container").classList.add("pause");
@@ -508,6 +584,14 @@ function pauseGame() {
     document.querySelector("#waterdrop1_container").removeEventListener("click", waterClick1);
     document.querySelector("#waterdrop2_container").removeEventListener("click", waterClick1);
     document.querySelector("#waterdrop3_container").removeEventListener("click", waterClick1);
+    
+    document.querySelector("#waterdrop1_container").removeEventListener("animationiteration", newPosForWater);
+    document.querySelector("#waterdrop2_container").removeEventListener("animationiteration", newPosForWater);
+    document.querySelector("#waterdrop3_container").removeEventListener("animationiteration", newPosForWater);
+    document.querySelector("#waterdrop1_container").removeEventListener("animationend", restart_waterdrop1);
+    document.querySelector("#waterdrop2_container").removeEventListener("animationend", restart_waterdrop1);
+    document.querySelector("#waterdrop3_container").removeEventListener("animationend", restart_waterdrop1);
+
     document.querySelector("#heart_container").removeEventListener("click", heartClick);
     document.querySelector("#firedrop1_container").removeEventListener("click", fireClick1);
     document.querySelector("#firedrop2_container").removeEventListener("click", fireClick1);
@@ -528,6 +612,7 @@ function pauseGame() {
 }
 
 function unPauseGame() {
+    clickSound.play();
     console.log("Game is set to NOT PAUSED");
     // start game if paused...
     // remove all paused classes
@@ -554,6 +639,14 @@ function unPauseGame() {
     bgMusic.play();
 
     // add all eventListeners
+
+    document.querySelector("#waterdrop1_container").addEventListener("animationiteration", newPosForWater);
+    document.querySelector("#waterdrop2_container").addEventListener("animationiteration", newPosForWater);
+    document.querySelector("#waterdrop3_container").addEventListener("animationiteration", newPosForWater);
+    document.querySelector("#waterdrop1_container").addEventListener("animationend", restart_waterdrop1);
+    document.querySelector("#waterdrop2_container").addEventListener("animationend", restart_waterdrop1);
+    document.querySelector("#waterdrop3_container").addEventListener("animationend", restart_waterdrop1);
+
     document.querySelector("#waterdrop1_container").addEventListener("click", waterClick1);
     document.querySelector("#waterdrop2_container").addEventListener("click", waterClick1);
     document.querySelector("#waterdrop3_container").addEventListener("click", waterClick1);
@@ -579,24 +672,12 @@ function unPauseGame() {
 
 // restart game function
 function restartGame() {
+  clickSound.play();
   console.log("restart game function");
-  
-  // hiding unused screens (title, instructions, gameover, levelcomplete)
-  document.querySelector("#title_screen").classList.add("hidden");
-  document.querySelector("#instructions").classList.add("hidden"); // actually this one shows up before the game background screen - have to fix it later
-  document.querySelector("#game_over").classList.add("hidden");
-  document.querySelector("#level_complete").classList.add("hidden");
-
   stopSounds();
-  playBackgroundMusic();
-
-  // reset variables
-  lives = 3;
-  points = 0;
-  timeLeft = durationOfGame;
 
   // Reset game run status to not "running"
-  gameHasEnded = false;
+  // gameHasEnded = false;
 
   // refilling the UI hearts (lives)
   document.querySelector("#life1").classList.remove("sprite4");
@@ -612,29 +693,30 @@ function restartGame() {
 
 
 
-// function that restarts the game after clicking on the exit button
+// function that reloads the game after clicking on the exit button - to welcome screen
 function exit() {
+  clickSound.play();
+  // refilling the UI hearts (lives)
+  document.querySelector("#life1").classList.remove("sprite4");
+  document.querySelector("#life2").classList.remove("sprite4");
+  document.querySelector("#life3").classList.remove("sprite4");
+  document.querySelector("#life1").classList.add("sprite3");
+  document.querySelector("#life2").classList.add("sprite3");
+  document.querySelector("#life3").classList.add("sprite3");
+  // document.querySelector("#game_screen").classList.add("hidden");
   console.log("exit function");
-  location.reload();
+  stopSounds();
+  // location.reload();
+  welcome1();
 }
 
 // function that restarts the game without going back to the welcome screen
 function restartOnButton() {
+  clickSound.play();
   console.log("restart on button function");
-  // hiding unused screens (title, instructions, gameover, levelcomplete)
-  document.querySelector("#title_screen").classList.add("hidden");
-  document.querySelector("#instructions").classList.add("hidden"); // actually this one shows up before the game background screen - have to fix it later
-  document.querySelector("#game_over").classList.add("hidden");
-  document.querySelector("#level_complete").classList.add("hidden");
   clear();
   clearTimeout(timeTracker);
   stopSounds();
-  playBackgroundMusic();
-
-  // reset variables
-  lives = 3;
-  points = 0;
-  timeLeft = durationOfGame;
 
   // refilling the UI hearts (lives)
   document.querySelector("#life1").classList.remove("sprite4");
@@ -644,10 +726,6 @@ function restartOnButton() {
   document.querySelector("#life2").classList.add("sprite3");
   document.querySelector("#life3").classList.add("sprite3");
 
-  // Reset game run status to not "running"
-  gameHasEnded = false;
-  
   start();
-  
 }
 
