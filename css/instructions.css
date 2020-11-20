@@ -33,3 +33,14 @@ section, h1 {
   font-weight: bold;
 }
 
+@media only screen and (max-width: 899px) {
+  body {
+    margin: 2vw;
+    font-size: 2vw;
+  }
+  section, h1 {
+    width: 100%;
+    /* margin: auto; */
+    margin-top: 5vw;
+  }
+}
