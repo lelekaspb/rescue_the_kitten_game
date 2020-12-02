@@ -204,8 +204,8 @@ function startHeart() {
 
 // click functions
 function waterClick1() {
-  console.log("waterdrop click function");
-  console.log(waterClick1.caller);
+  //console.log("waterdrop click function");
+  //console.log(waterClick1.caller);
   //this.removeEventListener("click", waterClick1);
   points++;
   //play sound
@@ -236,7 +236,7 @@ function heartClick() {
   document.querySelector("#life"+lives).classList.remove("sprite4");
   document.querySelector("#life"+lives).classList.add("sprite3");
   console.log("function heartClick");
-  //this.removeEventListener("click", heartClick);
+  this.removeEventListener("click", heartClick);
   //play sound
   heartSound.currentTime = 0;
   heartSound.play();
@@ -296,7 +296,7 @@ function heartClick() {
 // restart animations
 function restart_waterdrop1() {
   //setTimeout ( () => {
-    console.log("function restart waterdrop1");
+    //console.log("function restart waterdrop1");
     
     //console.log(restart_waterdrop1.caller);
     this.classList.value= "";
@@ -308,7 +308,7 @@ function restart_waterdrop1() {
       this.classList.add("fall_waterdrop_1");
   // }
     document.querySelector("#plus_waterdrop").classList.remove("flash");
-    console.log(timeLeft + "seconds left");
+    //console.log(timeLeft + "seconds left");
   //}, 2000);
 }
 
@@ -322,6 +322,7 @@ function restart_heart() {
     let randPos = Math.floor(Math.random()*9)+1;
     this.classList.add("position" + randPos);
     this.classList.add("fall_heart");
+    this.addEventListener("click", heartClick);
     document.querySelector("#plus_heart").classList.remove("flash");
   }, 2000); 
 }
@@ -395,11 +396,11 @@ function startTimer() {
 
 
 function showTime() {
-  console.log("function showtime");
+ // console.log("function showtime");
   //if there is still time left
   if (timeLeft > 0) {
     timeLeft--;
-    console.log("time left:" + timeLeft);
+    //console.log("time left:" + timeLeft);
     //then, call the startTimer function again (so that it can run one time more)
     startTimer();
   } else {
