@@ -697,6 +697,8 @@ function restartGame() {
 // function that reloads the game after clicking on the exit button - to welcome screen
 function exit() {
   clickSound.play();
+  clear();
+  clearTimeout(timeTracker);
   // refilling the UI hearts (lives)
   document.querySelector("#life1").classList.remove("sprite4");
   document.querySelector("#life2").classList.remove("sprite4");
